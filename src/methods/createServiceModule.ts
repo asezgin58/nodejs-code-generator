@@ -1,11 +1,27 @@
 import createElement from "./createElement";
 import createMethod from "./createMethod";
-import addMethodToService from "./addMethodToService";
-// import str from "./strMethods";
+import addItemToService from "./addItemToService";
+// import fs = require('fs')
 
 const element: any = require('./createElementControl');
+// const importInterface: any = require('./importInterfaceToService');
 let str: any = require('./strMethods');
 
+// let importInterface: Function = (path: string, structure: any) => {
+//     fs.writeFile(`${path}`, /*value*/ structure, function (err) {
+//         if (err) {
+//             throw err;
+//         }
+//     })
+// };
+
+let importInterfaceCodeMethod: Function = (interfaceName: any): any => {
+    return `import * as ${interfaceName} from './${interfaceName}';
+import {krax} from "react-krax";
+const queryString = require('query-string');\n\n`;
+
+    // return `import {krax} from "react-krax/lib";\n\n`;
+};
 
 let createServiceFunction: Function = (paths: any, servicesDirPath: string) => {
 
@@ -30,7 +46,7 @@ let createServiceFunction: Function = (paths: any, servicesDirPath: string) => {
 
         element.describeControl(servicePath, type);
 
-        //CASE 1
+        //CASE 1---SERVICE
         // tanımlı olup olmadığını kontrol edebilmek için
         // if (element.isDescribe === false) {
         //     createElement(servicePath, ''); //files are creating.
@@ -38,14 +54,23 @@ let createServiceFunction: Function = (paths: any, servicesDirPath: string) => {
         //     createElement(servicePath, '');
         // }
 
-        //CASE 2
-        createElement(servicePath, '');//for follow to json changes
+        // // // //IMPORT INTERFACE
+        let serviceInterfaceName: string = `I${serviceName}`;
+        let importInterfaceCode: any = importInterfaceCodeMethod(serviceInterfaceName);
+        // importInterface(servicePath, importInterfaceCode);
+        //
+        // //CASE 2---SERVICE
+        createElement(servicePath, importInterfaceCode);//for follow to json changes
 
+        // //CASE 2---SERVICE
+        // createElement(servicePath, '');//for follow to json changes
+
+        //
+        // break;
         //FOR INTERFACES
-        let IServicePath: string = `${servicesDirPath}/${serviceName}/I${serviceName}${extension}`;
+        let IServicePath: string = `${servicesDirPath}/${serviceName}/${serviceInterfaceName}${extension}`;
 
         element.describeControl(IServicePath, type);
-
         //CASE 2---FOR INTERFACES
         createElement(IServicePath, '');//for follow to json changes
 
@@ -53,11 +78,19 @@ let createServiceFunction: Function = (paths: any, servicesDirPath: string) => {
         let methodTypes: any[] = Object.keys(paths[urlPath]);
 
         let i: number = 0;
+        // continue;
         for (i = 0; i < methodValues.length; i++) {
 
-            let methodCode: any = createMethod(urlPath, methodTypes[i], methodValues[i]);
-            addMethodToService(servicePath, methodCode);
+            // console.log("url { control: ", urlPath.includes('{'));
+            if (urlPath.includes('/{') === true) {
+                urlPath = urlPath.slice(0, urlPath.indexOf('/{'));
+            }
+            let methodCode: string = createMethod(urlPath, methodTypes[i], methodValues[i], IServicePath, serviceInterfaceName);
+            addItemToService(servicePath, methodCode);
+            // break;
         }
+        // break;
     }
 };
+
 module.exports.createServiceFunction = createServiceFunction;
