@@ -40,7 +40,7 @@ ${params}
 }\n\n`;
 };
 
-let createBodyObject: Function = (methodParameters: any, paramsName: string, optionalParamsObjectName: string): any => {
+let createBodyObject: Function = (methodParameters: any, paramsName: string, optionalParamsObjectName: string, hasOptional: boolean): any => {
 
     let params: string = '';
     let paramsItem: string = '';
@@ -54,14 +54,24 @@ let createBodyObject: Function = (methodParameters: any, paramsName: string, opt
 
     params = params.slice(7, params.length);
 
-    if (params.length > 0) {
+    if (hasOptional === true && params.length > 0) {
         return (
             `body: {
                     ${params},
                     ...${optionalParamsObjectName}
                 },`
         );
-    } else {
+    }
+
+    if (params.length > 0 && hasOptional === false) {
+        return (
+            `body: {                    
+                    ${params}
+                },`
+        );
+    }
+
+    if (hasOptional === true) {
         return (
             `body: {                    
                     ...${optionalParamsObjectName}
@@ -236,7 +246,7 @@ export default (urlPath: string, methodType: string, methodValues: any, IService
             request: {
                 url: '${app.serviceUrl}${(methodType.toLowerCase() === 'get' || methodType.toLowerCase() === 'delete') && methodParams.length > 0 ? urlPath + '?' : urlPath}'${(methodType.toLowerCase() === 'get' || methodType.toLowerCase() === 'delete') && methodParams.length > 0 ? ` + queryString.stringify(${createQueryObject(methodValues.parameters, paramsName, optionalParamsObjectName, hasOptional)})` : ''},
                 method: '${methodType.toUpperCase()}',
-                ${methodType.toLowerCase() === 'post' || methodType.toLowerCase() === 'put' && methodParams.length > 0 ? createBodyObject(methodValues.parameters, paramsName, optionalParamsObjectName) : ''}
+                ${(methodType.toLowerCase() === 'post' || methodType.toLowerCase() === 'put') && methodParams.length > 0 ? createBodyObject(methodValues.parameters, paramsName, optionalParamsObjectName, hasOptional) : ''}
                 headers: {}
             },                
             onSuccess: (state: any) => {
@@ -244,8 +254,8 @@ export default (urlPath: string, methodType: string, methodValues: any, IService
                 console.log('State : ', state);
             },
             onError: (state: any, err: any) => {
-                console.log('State :', state);
                 console.log('Error :', err);
+                console.log('State :', state);
             },
             onBefore: (state: any) => {
                 console.log('onBefore-State : ', state);

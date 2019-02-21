@@ -30,7 +30,7 @@ var createInterfaceParamsCode = function (interfaceName, responseInterfaceName, 
     params = params.slice(2, params.length);
     return "export interface " + interfaceName + " {\n" + params + "\n}\n\n";
 };
-var createBodyObject = function (methodParameters, paramsName, optionalParamsObjectName) {
+var createBodyObject = function (methodParameters, paramsName, optionalParamsObjectName, hasOptional) {
     var params = '';
     var paramsItem = '';
     for (var _i = 0, methodParameters_2 = methodParameters; _i < methodParameters_2.length; _i++) {
@@ -41,10 +41,13 @@ var createBodyObject = function (methodParameters, paramsName, optionalParamsObj
         }
     }
     params = params.slice(7, params.length);
-    if (params.length > 0) {
+    if (hasOptional === true && params.length > 0) {
         return ("body: {\n                    " + params + ",\n                    ..." + optionalParamsObjectName + "\n                },");
     }
-    else {
+    if (params.length > 0 && hasOptional === false) {
+        return ("body: {                    \n                    " + params + "\n                },");
+    }
+    if (hasOptional === true) {
         return ("body: {                    \n                    ..." + optionalParamsObjectName + "\n                },");
     }
 };
@@ -165,5 +168,5 @@ exports.default = (function (urlPath, methodType, methodValues, IServicePath, se
     var paramsName = 'params';
     var optionalParamsObjectName = 'optionalParameters';
     var hasOptional = hasOptionalParamControl(methodValues.parameters);
-    return ("export const " + methodName + " = (" + (methodParams.length > 0 ? paramsName + ": " + serviceInterfaceName + "." + methodInterfaceName : '') + ") => {        \n    " + (methodParams.length > 0 && hasOptional === true ? createOptionalParametersObject(methodValues.parameters, paramsName, optionalParamsObjectName) : '') + "    \n    return (\n        krax({\n            name: '" + str.capitalize(methodValues.tags[0]) + "',\n            request: {\n                url: '" + app.serviceUrl + ((methodType.toLowerCase() === 'get' || methodType.toLowerCase() === 'delete') && methodParams.length > 0 ? urlPath + '?' : urlPath) + "'" + ((methodType.toLowerCase() === 'get' || methodType.toLowerCase() === 'delete') && methodParams.length > 0 ? " + queryString.stringify(" + createQueryObject(methodValues.parameters, paramsName, optionalParamsObjectName, hasOptional) + ")" : '') + ",\n                method: '" + methodType.toUpperCase() + "',\n                " + (methodType.toLowerCase() === 'post' || methodType.toLowerCase() === 'put' && methodParams.length > 0 ? createBodyObject(methodValues.parameters, paramsName, optionalParamsObjectName) : '') + "\n                headers: {}\n            },                \n            onSuccess: (state: any) => {\n                console.log('Success...');\n                console.log('State : ', state);\n            },\n            onError: (state: any, err: any) => {\n                console.log('State :', state);\n                console.log('Error :', err);\n            },\n            onBefore: (state: any) => {\n                console.log('onBefore-State : ', state);\n            }\n        })\n\t);\n};\n\n");
+    return ("export const " + methodName + " = (" + (methodParams.length > 0 ? paramsName + ": " + serviceInterfaceName + "." + methodInterfaceName : '') + ") => {        \n    " + (methodParams.length > 0 && hasOptional === true ? createOptionalParametersObject(methodValues.parameters, paramsName, optionalParamsObjectName) : '') + "    \n    return (\n        krax({\n            name: '" + str.capitalize(methodValues.tags[0]) + "',\n            request: {\n                url: '" + app.serviceUrl + ((methodType.toLowerCase() === 'get' || methodType.toLowerCase() === 'delete') && methodParams.length > 0 ? urlPath + '?' : urlPath) + "'" + ((methodType.toLowerCase() === 'get' || methodType.toLowerCase() === 'delete') && methodParams.length > 0 ? " + queryString.stringify(" + createQueryObject(methodValues.parameters, paramsName, optionalParamsObjectName, hasOptional) + ")" : '') + ",\n                method: '" + methodType.toUpperCase() + "',\n                " + ((methodType.toLowerCase() === 'post' || methodType.toLowerCase() === 'put') && methodParams.length > 0 ? createBodyObject(methodValues.parameters, paramsName, optionalParamsObjectName, hasOptional) : '') + "\n                headers: {}\n            },                \n            onSuccess: (state: any) => {\n                console.log('Success...');\n                console.log('State : ', state);\n            },\n            onError: (state: any, err: any) => {\n                console.log('Error :', err);\n                console.log('State :', state);\n            },\n            onBefore: (state: any) => {\n                console.log('onBefore-State : ', state);\n            }\n        })\n\t);\n};\n\n");
 });
