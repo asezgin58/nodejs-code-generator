@@ -64,4 +64,3 @@ router.get('/', (req: any, resp: any) => {
 
 module.exports = router;
 module.exports.parsedData = parsedData;
-// module.exports.serviceDirPath = serviceDirPath;

@@ -2,6 +2,7 @@ import fs = require('fs')
 
 var isDescribe: boolean = false;
 
+//Exist Control
 let describeControl: Function = (path: string, type: string) => {
 
     if (!fs.existsSync(path)) {

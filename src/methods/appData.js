@@ -53,4 +53,3 @@ router.get('/', function (req, resp) {
 // });
 module.exports = router;
 module.exports.parsedData = parsedData;
-// module.exports.serviceDirPath = serviceDirPath;

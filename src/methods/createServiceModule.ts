@@ -15,28 +15,25 @@ let str: any = require('./strMethods');
 //     })
 // };
 
-let importInterfaceCodeMethod: Function = (interfaceName: any): any => {
+let importCodeMethod: Function = (interfaceName: any): any => {
     return `import * as ${interfaceName} from './${interfaceName}';
 import {krax} from "react-krax";
 const queryString = require('query-string');\n\n`;
 
-    // return `import {krax} from "react-krax/lib";\n\n`;
+    // return `import {krax} from "react-krax";\n\n`;
 };
 
 let createServiceFunction: Function = (paths: any, servicesDirPath: string) => {
 
     let pathsKeys: any[] = Object.keys(paths);
-    // let pathsValues: any[] = Object.values(paths);
     let i: number = 0;
 
     for (let urlPath of pathsKeys) {
-
         let serviceName: string = urlPath.slice(1, urlPath.length);
         serviceName = serviceName.split('/')[0];
         serviceName = str.capitalize(serviceName);
 
         let type: string = 'directory';
-
         serviceName = `${serviceName}Service`;
         element.describeControl(`${servicesDirPath}/${serviceName}`, type);
 
@@ -56,11 +53,11 @@ let createServiceFunction: Function = (paths: any, servicesDirPath: string) => {
 
         // // // //IMPORT INTERFACE
         let serviceInterfaceName: string = `I${serviceName}`;
-        let importInterfaceCode: any = importInterfaceCodeMethod(serviceInterfaceName);
+        let importCode: any = importCodeMethod(serviceInterfaceName);
         // importInterface(servicePath, importInterfaceCode);
         //
         // //CASE 2---SERVICE
-        createElement(servicePath, importInterfaceCode);//for follow to json changes
+        createElement(servicePath, importCode);//for follow to json changes
 
         // //CASE 2---SERVICE
         // createElement(servicePath, '');//for follow to json changes

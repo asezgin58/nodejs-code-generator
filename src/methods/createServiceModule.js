@@ -14,13 +14,12 @@ var str = require('./strMethods');
 //         }
 //     })
 // };
-var importInterfaceCodeMethod = function (interfaceName) {
+var importCodeMethod = function (interfaceName) {
     return "import * as " + interfaceName + " from './" + interfaceName + "';\nimport {krax} from \"react-krax\";\nconst queryString = require('query-string');\n\n";
-    // return `import {krax} from "react-krax/lib";\n\n`;
+    // return `import {krax} from "react-krax";\n\n`;
 };
 var createServiceFunction = function (paths, servicesDirPath) {
     var pathsKeys = Object.keys(paths);
-    // let pathsValues: any[] = Object.values(paths);
     var i = 0;
     for (var _i = 0, pathsKeys_1 = pathsKeys; _i < pathsKeys_1.length; _i++) {
         var urlPath = pathsKeys_1[_i];
@@ -43,11 +42,11 @@ var createServiceFunction = function (paths, servicesDirPath) {
         // }
         // // // //IMPORT INTERFACE
         var serviceInterfaceName = "I" + serviceName;
-        var importInterfaceCode = importInterfaceCodeMethod(serviceInterfaceName);
+        var importCode = importCodeMethod(serviceInterfaceName);
         // importInterface(servicePath, importInterfaceCode);
         //
         // //CASE 2---SERVICE
-        createElement_1.default(servicePath, importInterfaceCode); //for follow to json changes
+        createElement_1.default(servicePath, importCode); //for follow to json changes
         // //CASE 2---SERVICE
         // createElement(servicePath, '');//for follow to json changes
         //

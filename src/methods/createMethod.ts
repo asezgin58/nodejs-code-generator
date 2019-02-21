@@ -38,7 +38,6 @@ let createInterfaceParamsCode: Function = (interfaceName: string, responseInterf
     return `export interface ${interfaceName} {
 ${params}
 }\n\n`;
-
 };
 
 let createBodyObject: Function = (methodParameters: any, paramsName: string, optionalParamsObjectName: string): any => {
