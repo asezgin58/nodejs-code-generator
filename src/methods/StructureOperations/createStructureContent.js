@@ -1,12 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var createElement_1 = require("./createElement");
-var createMethod_1 = require("./createMethod");
-var addItemToService_1 = require("./addItemToService");
+var createItem_1 = require("../ItemOperations/createItem");
+var createCode_1 = require("../CodeOperations/createCode");
+var addCode_1 = require("../CodeOperations/addCode");
+var itemExistControl_1 = require("../ItemOperations/itemExistControl");
 // import fs = require('fs')
-var element = require('./createElementControl');
 // const importInterface: any = require('./importInterfaceToService');
-var str = require('./strMethods');
+var str = require('../StringOperations/strMethods');
 // let importInterface: Function = (path: string, structure: any) => {
 //     fs.writeFile(`${path}`, /*value*/ structure, function (err) {
 //         if (err) {
@@ -47,7 +47,7 @@ var hasParameterInService = function (paths, urlPathParam) {
     }
     return hasParameter;
 };
-var createServiceFunction = function (paths, servicesDirPath) {
+exports.default = (function (paths, servicesDirPath) {
     var pathsKeys = Object.keys(paths);
     var i = 0;
     for (var _i = 0, pathsKeys_2 = pathsKeys; _i < pathsKeys_2.length; _i++) {
@@ -55,14 +55,14 @@ var createServiceFunction = function (paths, servicesDirPath) {
         var serviceName = urlPath.slice(1, urlPath.length);
         var urlServiceName = serviceName.split('/')[0];
         serviceName = str.capitalize(urlServiceName);
-        console.log("-----------" + serviceName + "SERVICE-------------");
+        // console.log(`-----------${serviceName}SERVICE-------------`);
         var type = 'directory';
         serviceName = serviceName + "Service";
-        element.describeControl(servicesDirPath + "/" + serviceName, type);
+        itemExistControl_1.default(servicesDirPath + "/" + serviceName, type);
         type = 'file';
         var extension = '.ts';
         var servicePath = servicesDirPath + "/" + serviceName + "/" + serviceName + extension;
-        element.describeControl(servicePath, type);
+        itemExistControl_1.default(servicePath, type);
         //CASE 1---SERVICE
         // tanımlı olup olmadığını kontrol edebilmek için
         // if (element.isDescribe === false) {
@@ -72,8 +72,6 @@ var createServiceFunction = function (paths, servicesDirPath) {
         // }
         var methodValues = Object.values(paths[urlPath]);
         var methodTypes = Object.keys(paths[urlPath]);
-        //todo: metodların hepsini dolaş ve 1 tane bile parametre varsa Import et. hiç yoksa Import etme ve interface oluşturma
-        //todo: Kontrol metodu yaz.
         var hasParameter = true;
         // continue;
         hasParameter = hasParameterInService(paths, urlServiceName);
@@ -87,16 +85,16 @@ var createServiceFunction = function (paths, servicesDirPath) {
             // break;
             //FOR INTERFACES
             IServicePath = servicesDirPath + "/" + serviceName + "/" + serviceInterfaceName + extension;
-            element.describeControl(IServicePath, type);
+            itemExistControl_1.default(IServicePath, type);
             //CASE 2---FOR INTERFACES
-            createElement_1.default(IServicePath, ''); //for follow to json changes
+            createItem_1.default(IServicePath, ''); //for follow to json changes
             ////////////*****************************
         }
         var importCode = importCodeToMethod(serviceInterfaceName, hasParameter);
         // importInterface(servicePath, importInterfaceCode);
         //
         // //CASE 2---SERVICE
-        createElement_1.default(servicePath, importCode); //for follow to json changes
+        createItem_1.default(servicePath, importCode); //for follow to json changes
         // //CASE 2---SERVICE
         // createElement(servicePath, '');//for follow to json changes
         var i_1 = 0;
@@ -107,11 +105,10 @@ var createServiceFunction = function (paths, servicesDirPath) {
             if (urlPath.includes('/{') === true) {
                 urlPath = urlPath.slice(0, urlPath.indexOf('/{'));
             }
-            var methodCode = createMethod_1.default(urlPath, methodTypes[i_1], methodValues[i_1], IServicePath, serviceInterfaceName);
-            addItemToService_1.default(servicePath, methodCode);
+            var methodCode = createCode_1.default(urlPath, methodTypes[i_1], methodValues[i_1], IServicePath, serviceInterfaceName);
+            addCode_1.default(servicePath, methodCode);
             // break;
         }
         // break;
     }
-};
-module.exports.createServiceFunction = createServiceFunction;
+});

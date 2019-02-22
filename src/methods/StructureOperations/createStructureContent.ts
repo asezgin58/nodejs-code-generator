@@ -1,12 +1,12 @@
-import createElement from "./createElement";
-import createMethod from "./createMethod";
-import addItemToService from "./addItemToService";
+import createItem from "../ItemOperations/createItem";
+import createCode from "../CodeOperations/createCode";
+import addCode from "../CodeOperations/addCode";
+import itemExistControl from "../ItemOperations/itemExistControl";
 import {string} from "prop-types";
 // import fs = require('fs')
 
-const element: any = require('./createElementControl');
 // const importInterface: any = require('./importInterfaceToService');
-let str: any = require('./strMethods');
+let str: any = require('../StringOperations/strMethods');
 
 // let importInterface: Function = (path: string, structure: any) => {
 //     fs.writeFile(`${path}`, /*value*/ structure, function (err) {
@@ -60,7 +60,7 @@ let hasParameterInService: Function = (paths: any, urlPathParam: string): any =>
     return hasParameter;
 };
 
-let createServiceFunction: Function = (paths: any, servicesDirPath: string) => {
+export default (paths: any, servicesDirPath: string) => {
 
     let pathsKeys: any[] = Object.keys(paths);
     let i: number = 0;
@@ -70,17 +70,17 @@ let createServiceFunction: Function = (paths: any, servicesDirPath: string) => {
         let urlServiceName: string = serviceName.split('/')[0];
         serviceName = str.capitalize(urlServiceName);
 
-        console.log(`-----------${serviceName}SERVICE-------------`);
+        // console.log(`-----------${serviceName}SERVICE-------------`);
 
         let type: string = 'directory';
         serviceName = `${serviceName}Service`;
-        element.describeControl(`${servicesDirPath}/${serviceName}`, type);
+        itemExistControl(`${servicesDirPath}/${serviceName}`, type);
 
         type = 'file';
         let extension: string = '.ts';
         let servicePath: string = `${servicesDirPath}/${serviceName}/${serviceName}${extension}`;
 
-        element.describeControl(servicePath, type);
+        itemExistControl(servicePath, type);
 
         //CASE 1---SERVICE
         // tanımlı olup olmadığını kontrol edebilmek için
@@ -92,9 +92,6 @@ let createServiceFunction: Function = (paths: any, servicesDirPath: string) => {
 
         let methodValues: any[] = Object.values(paths[urlPath]);
         let methodTypes: any[] = Object.keys(paths[urlPath]);
-
-        //todo: metodların hepsini dolaş ve 1 tane bile parametre varsa Import et. hiç yoksa Import etme ve interface oluşturma
-        //todo: Kontrol metodu yaz.
 
         let hasParameter: boolean = true;
         // continue;
@@ -114,9 +111,9 @@ let createServiceFunction: Function = (paths: any, servicesDirPath: string) => {
             //FOR INTERFACES
             IServicePath = `${servicesDirPath}/${serviceName}/${serviceInterfaceName}${extension}`;
 
-            element.describeControl(IServicePath, type);
+            itemExistControl(IServicePath, type);
             //CASE 2---FOR INTERFACES
-            createElement(IServicePath, '');//for follow to json changes
+            createItem(IServicePath, '');//for follow to json changes
             ////////////*****************************
         }
 
@@ -124,7 +121,7 @@ let createServiceFunction: Function = (paths: any, servicesDirPath: string) => {
         // importInterface(servicePath, importInterfaceCode);
         //
         // //CASE 2---SERVICE
-        createElement(servicePath, importCode);//for follow to json changes
+        createItem(servicePath, importCode);//for follow to json changes
 
         // //CASE 2---SERVICE
         // createElement(servicePath, '');//for follow to json changes
@@ -140,13 +137,10 @@ let createServiceFunction: Function = (paths: any, servicesDirPath: string) => {
                 urlPath = urlPath.slice(0, urlPath.indexOf('/{'));
             }
 
-
-            let methodCode: string = createMethod(urlPath, methodTypes[i], methodValues[i], IServicePath, serviceInterfaceName);
-            addItemToService(servicePath, methodCode);
+            let methodCode: string = createCode(urlPath, methodTypes[i], methodValues[i], IServicePath, serviceInterfaceName);
+            addCode(servicePath, methodCode);
             // break;
         }
         // break;
     }
 };
-
-module.exports.createServiceFunction = createServiceFunction;

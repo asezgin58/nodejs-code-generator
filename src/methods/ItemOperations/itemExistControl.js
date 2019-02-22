@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var fs = require("fs");
 var isDescribe = false;
 //Exist Control
-var describeControl = function (path, type) {
+exports.default = (function (path, type) {
     if (!fs.existsSync(path)) {
         type === 'directory' ? fs.mkdirSync(path) : null;
         isDescribe = false;
@@ -13,5 +13,4 @@ var describeControl = function (path, type) {
         isDescribe = true;
         module.exports.isDescribe = isDescribe;
     }
-};
-module.exports.describeControl = describeControl;
+});

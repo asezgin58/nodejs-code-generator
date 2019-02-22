@@ -1,6 +1,7 @@
-const app: any = require("../app");
-const str: any = require('./strMethods');
-import addItemToService from "./addItemToService";
+import addCode from "./addCode";
+
+const app: any = require("../../app");
+const str: any = require('../StringOperations/strMethods');
 
 let createMethodParameters: Function = (methodParameters: any): string => {
 
@@ -225,7 +226,7 @@ export default (urlPath: string, methodType: string, methodValues: any, IService
     if (methodParams.length > 0) {
         methodInterfaceName = 'I' + str.capitalize(methodName) + 'Params';
         let interfaceParamsCode: any = createInterfaceParamsCode(methodInterfaceName, responseInterfaceName, methodParams);
-        addItemToService(IServicePath, interfaceParamsCode);
+        addCode(IServicePath, interfaceParamsCode);
     }
     // //todo:FOR RESPONSE 3
     // responseInterfaceName = methodName + 'Response';

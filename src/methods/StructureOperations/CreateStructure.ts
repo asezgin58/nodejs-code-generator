@@ -1,11 +1,9 @@
 import express = require('express');
 import https = require('https');
+import createStructureContent from "./createStructureContent";
+import itemExistControl from "../ItemOperations/itemExistControl";
 
-const app: any = require("../app");
-
-const createServiceModule: any = require('./createServiceModule');
-const element: any = require('./createElementControl');
-
+const app: any = require("../../app");
 const router: express.Router = express.Router();
 
 let parsedData: any = '';
@@ -39,10 +37,10 @@ router.get('/', (req: any, resp: any) => {
 
                     //For Service Directory Path Control Operation
                     let type: string = 'directory';
-                    element.describeControl(servicesDirPath, type);//serverDirPath path is ready
+                    itemExistControl(servicesDirPath, type);//serverDirPath path is ready
 
                     //For Create Service Methods
-                    createServiceModule.createServiceFunction(paths, servicesDirPath);
+                    createStructureContent(paths, servicesDirPath);
                     //Output
                     resp.end(JSON.stringify(parsedData));
                 }

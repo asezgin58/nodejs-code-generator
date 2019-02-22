@@ -3,7 +3,7 @@ import fs = require('fs')
 var isDescribe: boolean = false;
 
 //Exist Control
-let describeControl: Function = (path: string, type: string) => {
+export default (path: string, type: string) => {
 
     if (!fs.existsSync(path)) {
         type === 'directory' ? fs.mkdirSync(path) : null;
@@ -14,4 +14,3 @@ let describeControl: Function = (path: string, type: string) => {
         module.exports.isDescribe = isDescribe;
     }
 };
-module.exports.describeControl = describeControl;

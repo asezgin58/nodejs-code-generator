@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var app = require("../app");
-var str = require('./strMethods');
-var addItemToService_1 = require("./addItemToService");
+var addCode_1 = require("./addCode");
+var app = require("../../app");
+var str = require('../StringOperations/strMethods');
 var createMethodParameters = function (methodParameters) {
     var params = '';
     var paramsItem = '';
@@ -158,7 +158,7 @@ exports.default = (function (urlPath, methodType, methodValues, IServicePath, se
     if (methodParams.length > 0) {
         methodInterfaceName = 'I' + str.capitalize(methodName) + 'Params';
         var interfaceParamsCode = createInterfaceParamsCode(methodInterfaceName, responseInterfaceName, methodParams);
-        addItemToService_1.default(IServicePath, interfaceParamsCode);
+        addCode_1.default(IServicePath, interfaceParamsCode);
     }
     // //todo:FOR RESPONSE 3
     // responseInterfaceName = methodName + 'Response';

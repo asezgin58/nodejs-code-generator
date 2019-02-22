@@ -2,9 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var express = require("express");
 var https = require("https");
-var app = require("../app");
-var createServiceModule = require('./createServiceModule');
-var element = require('./createElementControl');
+var createStructureContent_1 = require("./createStructureContent");
+var itemExistControl_1 = require("../ItemOperations/itemExistControl");
+var app = require("../../app");
 var router = express.Router();
 var parsedData = '';
 var servicesDirPath = '';
@@ -30,9 +30,9 @@ router.get('/', function (req, resp) {
                     servicesDirPath = './services';
                     //For Service Directory Path Control Operation
                     var type = 'directory';
-                    element.describeControl(servicesDirPath, type); //serverDirPath path is ready
+                    itemExistControl_1.default(servicesDirPath, type); //serverDirPath path is ready
                     //For Create Service Methods
-                    createServiceModule.createServiceFunction(paths, servicesDirPath);
+                    createStructureContent_1.default(paths, servicesDirPath);
                     //Output
                     resp.end(JSON.stringify(parsedData));
                 }
