@@ -1,5 +1,6 @@
 import addCode from "./addCode";
 import createMethodName from "./createMethodName";
+import createQueryParamsVariable from "./createQueryParamsVariable";
 import optionalParameterExistControl from "./ParameterOperations/optionalParameterExistControl";
 import createMethodParameters from "./ParameterOperations/createMethodParameters";
 import createInterfaceParameters from "./ParameterOperations/createInterfaceParameters";
@@ -44,15 +45,17 @@ export default (urlPath: string, methodType: string, methodValues: any, IService
     let paramsName: string = 'params';
     let optionalParamsObjectName: string = 'optionalParameters';
     let hasOptional: boolean = optionalParameterExistControl(methodValues.parameters);
+    let queryParamsVariableName: string = 'queryParams';
 
     return (
         `export const ${methodName} = (${methodParams.length > 0 ? `${paramsName}: ${serviceInterfaceName}.${methodInterfaceName}` : ''}) => {        
-    ${methodParams.length > 0 && hasOptional === true ? createOptionalParametersObject(methodValues.parameters, paramsName, optionalParamsObjectName) : ''}    
+    ${methodParams.length > 0 && hasOptional === true ? createOptionalParametersObject(methodValues.parameters, paramsName, optionalParamsObjectName) : ''}
+    ${(methodType.toLowerCase() === 'get' || methodType.toLowerCase() === 'delete') && methodParams.length > 0 ? createQueryParamsVariable(queryParamsVariableName, optionalParamsObjectName, methodValues, paramsName, hasOptional) : ''}    
     return (
         krax({
             name: '${str.capitalize(methodValues.tags[0])}',
             request: {
-                url: '${app.serviceUrl}${(methodType.toLowerCase() === 'get' || methodType.toLowerCase() === 'delete') && methodParams.length > 0 ? urlPath + '?' : urlPath}'${(methodType.toLowerCase() === 'get' || methodType.toLowerCase() === 'delete') && methodParams.length > 0 ? ` + queryString.stringify(${createQueryStringObject(methodValues.parameters, paramsName, optionalParamsObjectName, hasOptional)})` : ''},
+                url: '${app.serviceUrl}${urlPath}'${(methodType.toLowerCase() === 'get' || methodType.toLowerCase() === 'delete') && methodParams.length > 0 ? ` + ${queryParamsVariableName}` : ''},
                 method: '${methodType.toUpperCase()}',
                 ${(methodType.toLowerCase() === 'post' || methodType.toLowerCase() === 'put') && methodParams.length > 0 ? createBodyObject(methodValues.parameters, paramsName, optionalParamsObjectName, hasOptional) : ''}
                 headers: {}
