@@ -6,7 +6,6 @@ import createMethodParameters from "./ParameterOperations/createMethodParameters
 import createInterfaceParameters from "./ParameterOperations/createInterfaceParameters";
 import createOptionalParametersObject from "./ParameterOperations/createOptionalParametersObject";
 import createBodyObject from "./ParameterOperations/RequestParameters/createBodyObject";
-import createQueryStringObject from "./ParameterOperations/RequestParameters/createQueryStringObject";
 
 const app: any = require("../../app");
 const str: any = require('../StringOperations/strMethods');
