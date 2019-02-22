@@ -1,49 +1,22 @@
 import createItem from "../ItemOperations/createItem";
-import createCode from "../CodeOperations/createCode";
+import createMethodCode from "../CodeOperations/createMethodCode";
+import createImportCode from "../CodeOperations/createImportCode";
 import addCode from "../CodeOperations/addCode";
 import itemExistControl from "../ItemOperations/itemExistControl";
-import {string} from "prop-types";
-// import fs = require('fs')
+// import {string} from "prop-types";
 
-// const importInterface: any = require('./importInterfaceToService');
-let str: any = require('../StringOperations/strMethods');
+const str: any = require('../StringOperations/strMethods');
 
-// let importInterface: Function = (path: string, structure: any) => {
-//     fs.writeFile(`${path}`, /*value*/ structure, function (err) {
-//         if (err) {
-//             throw err;
-//         }
-//     })
-// };
-
-let importCodeToMethod: Function = (interfaceName: any, hasParameter: boolean): any => {
-
-    if (hasParameter === true) {
-        return `import * as ${interfaceName} from './${interfaceName}';
-import {krax} from "react-krax";
-const queryString = require('query-string');\n\n`;
-    } else {
-        return `import {krax} from "react-krax";\n\n`;
-    }
-
-    // return `import {krax} from "react-krax";\n\n`;
-};
-
-
-let hasParameterInService: Function = (paths: any, urlPathParam: string): any => {
+let parameterExistControl: Function = (paths: any, urlPathParam: string): any => {
     let hasParameter: boolean = true;
-
-    // console.log("URLPATH", urlPathParam);
-
     let pathsKeys: any[] = Object.keys(paths);
-    let i: number = 0;
 
+    let i: number = 0;
     for (let urlPath of pathsKeys) {
         let serviceName: string = urlPath.slice(1, urlPath.length);
         serviceName = serviceName.split('/')[0];
 
         if (serviceName === urlPathParam) {
-
             let methodValues: any[] = Object.values(paths[urlPath]);
 
             for (i = 0; i < methodValues.length; i++) {
@@ -61,9 +34,7 @@ let hasParameterInService: Function = (paths: any, urlPathParam: string): any =>
 };
 
 export default (paths: any, servicesDirPath: string) => {
-
     let pathsKeys: any[] = Object.keys(paths);
-    let i: number = 0;
 
     for (let urlPath of pathsKeys) {
         let serviceName: string = urlPath.slice(1, urlPath.length);
@@ -93,10 +64,7 @@ export default (paths: any, servicesDirPath: string) => {
         let methodValues: any[] = Object.values(paths[urlPath]);
         let methodTypes: any[] = Object.keys(paths[urlPath]);
 
-        let hasParameter: boolean = true;
-        // continue;
-
-        hasParameter = hasParameterInService(paths, urlServiceName);
+        let hasParameter: boolean = parameterExistControl(paths, urlServiceName);
 
         let IServicePath: string = '';
         let serviceInterfaceName: string = '';
@@ -117,7 +85,7 @@ export default (paths: any, servicesDirPath: string) => {
             ////////////*****************************
         }
 
-        let importCode: any = importCodeToMethod(serviceInterfaceName, hasParameter);
+        let importCode: any = createImportCode(serviceInterfaceName, hasParameter);
         // importInterface(servicePath, importInterfaceCode);
         //
         // //CASE 2---SERVICE
@@ -137,7 +105,7 @@ export default (paths: any, servicesDirPath: string) => {
                 urlPath = urlPath.slice(0, urlPath.indexOf('/{'));
             }
 
-            let methodCode: string = createCode(urlPath, methodTypes[i], methodValues[i], IServicePath, serviceInterfaceName);
+            let methodCode: string = createMethodCode(urlPath, methodTypes[i], methodValues[i], IServicePath, serviceInterfaceName);
             addCode(servicePath, methodCode);
             // break;
         }
