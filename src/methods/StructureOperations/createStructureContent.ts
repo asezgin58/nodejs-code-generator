@@ -3,45 +3,47 @@ import createMethodCode from "../CodeOperations/createMethodCode";
 import createImportCode from "../CodeOperations/createImportCode";
 import addCode from "../CodeOperations/addCode";
 import itemExistControl from "../ItemOperations/itemExistControl";
+import serviceParameterExistControl from "../CodeOperations/ParameterOperations/serviceParameterExistControl";
 // import {string} from "prop-types";
 
 const str: any = require('../StringOperations/strMethods');
 
-let parameterExistControl: Function = (paths: any, urlPathParam: string): any => {
-    let hasParameter: boolean = true;
-    let pathsKeys: any[] = Object.keys(paths);
-
-    let i: number = 0;
-    for (let urlPath of pathsKeys) {
-        let serviceName: string = urlPath.slice(1, urlPath.length);
-        serviceName = serviceName.split('/')[0];
-
-        if (serviceName === urlPathParam) {
-            let methodValues: any[] = Object.values(paths[urlPath]);
-
-            for (i = 0; i < methodValues.length; i++) {
-
-                if (methodValues[i].parameters.length > 0) {
-                    hasParameter = true;
-                    return hasParameter;
-                } else {
-                    hasParameter = false;
-                }
-            }
-        }
-    }
-    return hasParameter;
+import fs = require('fs')
+//Create Item
+let readServiceFile: Function = (path: string): any => {
+    return fs.readFileSync(`${path}`, 'utf8');
 };
 
 export default (paths: any, servicesDirPath: string) => {
     let pathsKeys: any[] = Object.keys(paths);
 
-    for (let urlPath of pathsKeys) {
+    let prevServiceName: string = '';
+
+    let counter: number = 0;
+
+    for (counter = 0; counter < pathsKeys.length; counter++ /* urlPath of pathsKeys*/) {
+        let urlPath: any = pathsKeys[counter];
         let serviceName: string = urlPath.slice(1, urlPath.length);
         let urlServiceName: string = serviceName.split('/')[0];
         serviceName = str.capitalize(urlServiceName);
 
+        //******************PrevServiceName===ServiceName Control*******------------
+        // if (counter === 0) {
+        //     prevServiceName = serviceName;
+        // } else {
+        //     let prevUrlPath: any = pathsKeys[counter - 1];
+        //     prevServiceName = prevUrlPath.slice(1, prevUrlPath.length);
+        //     let prevUrlServiceName: string = prevServiceName.split('/')[0];
+        //     prevServiceName = str.capitalize(prevUrlServiceName);
+        // }
+
+        // console.log("Prev : ", prevServiceName);
+        // console.log("Current : ", serviceName);
+
+        // continue;
+
         // console.log(`-----------${serviceName}SERVICE-------------`);
+
 
         let type: string = 'directory';
         serviceName = `${serviceName}Service`;
@@ -64,7 +66,7 @@ export default (paths: any, servicesDirPath: string) => {
         let methodValues: any[] = Object.values(paths[urlPath]);
         let methodTypes: any[] = Object.keys(paths[urlPath]);
 
-        let hasParameter: boolean = parameterExistControl(paths, urlServiceName);
+        let hasParameter: boolean = serviceParameterExistControl(paths, urlServiceName);
 
         let IServicePath: string = '';
         let serviceInterfaceName: string = '';
@@ -89,12 +91,20 @@ export default (paths: any, servicesDirPath: string) => {
         // importInterface(servicePath, importInterfaceCode);
         //
         // //CASE 2---SERVICE
+
+        //todo: BURDAYIMMM ... OKUMA
         createItem(servicePath, importCode);//for follow to json changes
 
+        let fileContent: any = readServiceFile(servicePath);
+        //
+        // console.log("State : ", fileContent);
+        //
+        // break;
+
         // //CASE 2---SERVICE
-        // createElement(servicePath, '');//for follow to json changes
+        // createItem(servicePath, '');//for follow to json changes
 
-
+        let methodsCodes: string = '';
         let i: number = 0;
         // continue;
         for (i = 0; i < methodValues.length; i++) {
@@ -106,9 +116,13 @@ export default (paths: any, servicesDirPath: string) => {
             }
 
             let methodCode: string = createMethodCode(urlPath, methodTypes[i], methodValues[i], IServicePath, serviceInterfaceName);
-            addCode(servicePath, methodCode);
+            methodsCodes = methodsCodes + methodCode;
             // break;
         }
+        if (!fileContent.includes(importCode)) {
+            addCode(servicePath, importCode);
+        }
+        addCode(servicePath, methodsCodes);
         // break;
     }
 };

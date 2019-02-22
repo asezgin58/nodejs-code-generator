@@ -5,38 +5,35 @@ var createMethodCode_1 = require("../CodeOperations/createMethodCode");
 var createImportCode_1 = require("../CodeOperations/createImportCode");
 var addCode_1 = require("../CodeOperations/addCode");
 var itemExistControl_1 = require("../ItemOperations/itemExistControl");
+var serviceParameterExistControl_1 = require("../CodeOperations/ParameterOperations/serviceParameterExistControl");
 // import {string} from "prop-types";
 var str = require('../StringOperations/strMethods');
-var parameterExistControl = function (paths, urlPathParam) {
-    var hasParameter = true;
-    var pathsKeys = Object.keys(paths);
-    var i = 0;
-    for (var _i = 0, pathsKeys_1 = pathsKeys; _i < pathsKeys_1.length; _i++) {
-        var urlPath = pathsKeys_1[_i];
-        var serviceName = urlPath.slice(1, urlPath.length);
-        serviceName = serviceName.split('/')[0];
-        if (serviceName === urlPathParam) {
-            var methodValues = Object.values(paths[urlPath]);
-            for (i = 0; i < methodValues.length; i++) {
-                if (methodValues[i].parameters.length > 0) {
-                    hasParameter = true;
-                    return hasParameter;
-                }
-                else {
-                    hasParameter = false;
-                }
-            }
-        }
-    }
-    return hasParameter;
+var fs = require("fs");
+//Create Item
+var readServiceFile = function (path) {
+    return fs.readFileSync("" + path, 'utf8');
 };
 exports.default = (function (paths, servicesDirPath) {
     var pathsKeys = Object.keys(paths);
-    for (var _i = 0, pathsKeys_2 = pathsKeys; _i < pathsKeys_2.length; _i++) {
-        var urlPath = pathsKeys_2[_i];
+    var prevServiceName = '';
+    var counter = 0;
+    for (counter = 0; counter < pathsKeys.length; counter++ /* urlPath of pathsKeys*/) {
+        var urlPath = pathsKeys[counter];
         var serviceName = urlPath.slice(1, urlPath.length);
         var urlServiceName = serviceName.split('/')[0];
         serviceName = str.capitalize(urlServiceName);
+        //******************PrevServiceName===ServiceName Control*******------------
+        // if (counter === 0) {
+        //     prevServiceName = serviceName;
+        // } else {
+        //     let prevUrlPath: any = pathsKeys[counter - 1];
+        //     prevServiceName = prevUrlPath.slice(1, prevUrlPath.length);
+        //     let prevUrlServiceName: string = prevServiceName.split('/')[0];
+        //     prevServiceName = str.capitalize(prevUrlServiceName);
+        // }
+        // console.log("Prev : ", prevServiceName);
+        // console.log("Current : ", serviceName);
+        // continue;
         // console.log(`-----------${serviceName}SERVICE-------------`);
         var type = 'directory';
         serviceName = serviceName + "Service";
@@ -54,7 +51,7 @@ exports.default = (function (paths, servicesDirPath) {
         // }
         var methodValues = Object.values(paths[urlPath]);
         var methodTypes = Object.keys(paths[urlPath]);
-        var hasParameter = parameterExistControl(paths, urlServiceName);
+        var hasParameter = serviceParameterExistControl_1.default(paths, urlServiceName);
         var IServicePath = '';
         var serviceInterfaceName = '';
         if (hasParameter === true) {
@@ -74,9 +71,16 @@ exports.default = (function (paths, servicesDirPath) {
         // importInterface(servicePath, importInterfaceCode);
         //
         // //CASE 2---SERVICE
+        //todo: BURDAYIMMM ... OKUMA
         createItem_1.default(servicePath, importCode); //for follow to json changes
+        var fileContent = readServiceFile(servicePath);
+        //
+        // console.log("State : ", fileContent);
+        //
+        // break;
         // //CASE 2---SERVICE
-        // createElement(servicePath, '');//for follow to json changes
+        // createItem(servicePath, '');//for follow to json changes
+        var methodsCodes = '';
         var i = 0;
         // continue;
         for (i = 0; i < methodValues.length; i++) {
@@ -86,9 +90,13 @@ exports.default = (function (paths, servicesDirPath) {
                 urlPath = urlPath.slice(0, urlPath.indexOf('/{'));
             }
             var methodCode = createMethodCode_1.default(urlPath, methodTypes[i], methodValues[i], IServicePath, serviceInterfaceName);
-            addCode_1.default(servicePath, methodCode);
+            methodsCodes = methodsCodes + methodCode;
             // break;
         }
+        if (!fileContent.includes(importCode)) {
+            addCode_1.default(servicePath, importCode);
+        }
+        addCode_1.default(servicePath, methodsCodes);
         // break;
     }
 });

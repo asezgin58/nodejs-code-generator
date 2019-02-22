@@ -7,5 +7,4 @@ exports.default = (function (interfaceName, hasParameter) {
     else {
         return "import {krax} from \"react-krax\";\n\n";
     }
-    // return `import {krax} from "react-krax";\n\n`;
 });
