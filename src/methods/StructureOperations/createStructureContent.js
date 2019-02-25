@@ -16,9 +16,10 @@ var readServiceFile = function (path) {
 exports.default = (function (paths, servicesDirPath) {
     var pathsKeys = Object.keys(paths);
     var prevServiceName = '';
-    var counter = 0;
-    for (counter = 0; counter < pathsKeys.length; counter++ /* urlPath of pathsKeys*/) {
-        var urlPath = pathsKeys[counter];
+    // let counter: number = 0;
+    for (var _i = 0, pathsKeys_1 = pathsKeys; _i < pathsKeys_1.length; _i++) {
+        var urlPath = pathsKeys_1[_i];
+        // let urlPath: any = pathsKeys[counter];
         var serviceName = urlPath.slice(1, urlPath.length);
         var urlServiceName = serviceName.split('/')[0];
         serviceName = str.capitalize(urlServiceName);

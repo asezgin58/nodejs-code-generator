@@ -12,7 +12,7 @@ let servicesDirPath: string = '';
 //----> router.get->path : '/' = http://localhost:8002/`${app.path}`
 router.get('/', (req: any, resp: any) => {
 
-    let serviceAddress: string = app.serviceUrl + app.servicePath;
+    let serviceAddress: string = app.config.serviceUrl + app.config.servicePath;
 
     // for certificate error
     let options: any = {

@@ -19,10 +19,10 @@ export default (paths: any, servicesDirPath: string) => {
 
     let prevServiceName: string = '';
 
-    let counter: number = 0;
+    // let counter: number = 0;
 
-    for (counter = 0; counter < pathsKeys.length; counter++ /* urlPath of pathsKeys*/) {
-        let urlPath: any = pathsKeys[counter];
+    for (/*counter = 0; counter < pathsKeys.length; counter++*/ let urlPath of pathsKeys) {
+        // let urlPath: any = pathsKeys[counter];
         let serviceName: string = urlPath.slice(1, urlPath.length);
         let urlServiceName: string = serviceName.split('/')[0];
         serviceName = str.capitalize(urlServiceName);

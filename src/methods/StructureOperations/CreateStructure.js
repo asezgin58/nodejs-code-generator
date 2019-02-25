@@ -10,7 +10,7 @@ var parsedData = '';
 var servicesDirPath = '';
 //----> router.get->path : '/' = http://localhost:8002/`${app.path}`
 router.get('/', function (req, resp) {
-    var serviceAddress = app.serviceUrl + app.servicePath;
+    var serviceAddress = app.config.serviceUrl + app.config.servicePath;
     // for certificate error
     var options = {
         rejectUnauthorized: false
