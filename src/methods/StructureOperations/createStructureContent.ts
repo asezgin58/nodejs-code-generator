@@ -92,10 +92,10 @@ export default (paths: any, servicesDirPath: string) => {
         //
         // //CASE 2---SERVICE
 
-        //todo: BURDAYIMMM ... OKUMA
+        // Add IMPORT CODES to file
         createItem(servicePath, importCode);//for follow to json changes
 
-        let fileContent: any = readServiceFile(servicePath);
+        // let fileContent: any = readServiceFile(servicePath);//needn't.
         //
         // console.log("State : ", fileContent);
         //
@@ -119,9 +119,10 @@ export default (paths: any, servicesDirPath: string) => {
             methodsCodes = methodsCodes + methodCode;
             // break;
         }
-        if (!fileContent.includes(importCode)) {
-            addCode(servicePath, importCode);
-        }
+        // // this code block needn't.
+        // if (!fileContent.includes(importCode)) {
+        //     addCode(servicePath, importCode);
+        // }
         addCode(servicePath, methodsCodes);
         // break;
     }

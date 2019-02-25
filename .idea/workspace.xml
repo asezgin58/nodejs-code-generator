@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="69803afe-e3c9-4294-91ff-0ab4d4f18ecb" name="Default Changelist" comment="" />
+    <list default="true" id="69803afe-e3c9-4294-91ff-0ab4d4f18ecb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/methods/StructureOperations/createStructureContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/methods/StructureOperations/createStructureContent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/methods/StructureOperations/createStructureContent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/methods/StructureOperations/createStructureContent.ts" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -15,74 +19,63 @@
     <session id="1822909260">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="8" />
+          <entry key="project.closed" value="9" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.34" value="1" />
+          <entry key="project.open.time.41" value="1" />
           <entry key="project.open.time.5" value="2" />
           <entry key="project.open.time.52" value="1" />
           <entry key="project.open.time.55" value="1" />
           <entry key="project.open.time.56" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="10" />
+          <entry key="project.opened" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="js" value="4" />
           <entry key="json" value="6" />
-          <entry key="ts" value="872" />
+          <entry key="ts" value="904" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JSON" value="6" />
           <entry key="JavaScript" value="4" />
-          <entry key="TypeScript" value="872" />
+          <entry key="TypeScript" value="904" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
-          <entry key="TypeScriptServerServiceImpl" value="10" />
+          <entry key="TypeScriptServerServiceImpl" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="json" value="47" />
-          <entry key="ts" value="15523" />
+          <entry key="ts" value="15607" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="2" />
           <entry key="JSON" value="47" />
-          <entry key="TypeScript" value="15521" />
+          <entry key="TypeScript" value="15605" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/methods/StructureOperations/createStructureContent.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="496">
-              <caret line="122" column="31" selection-start-line="122" selection-start-column="20" selection-end-line="122" selection-end-column="31" />
+            <state relative-caret-position="154">
+              <caret line="97" column="73" lean-forward="true" selection-start-line="97" selection-start-column="73" selection-end-line="97" selection-end-column="73" />
               <folding>
                 <element signature="e#0#54#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/methods/CodeOperations/createMethodCode.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="7" column="88" selection-start-line="7" selection-start-column="88" selection-end-line="7" selection-end-column="88" />
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -153,12 +146,12 @@
         <option value="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/serviceParameterExistControl.ts" />
         <option value="$PROJECT_DIR$/src/methods/CodeOperations/createImportCode.ts" />
         <option value="$PROJECT_DIR$/src/methods/ItemOperations/createItem.ts" />
-        <option value="$PROJECT_DIR$/src/methods/StructureOperations/createStructureContent.ts" />
         <option value="$PROJECT_DIR$/src/methods/CodeOperations/addCode.ts" />
         <option value="$PROJECT_DIR$/services/ChannelService/ChannelService.ts" />
         <option value="$PROJECT_DIR$/src/app.ts" />
         <option value="$PROJECT_DIR$/src/methods/CodeOperations/createQueryParamsVariable.ts" />
         <option value="$PROJECT_DIR$/src/methods/CodeOperations/createMethodCode.ts" />
+        <option value="$PROJECT_DIR$/src/methods/StructureOperations/createStructureContent.ts" />
       </list>
     </option>
   </component>
@@ -206,6 +199,13 @@
               <item name="TryManualSwagger" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="methods" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TryManualSwagger" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TryManualSwagger" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="methods" type="462c0819:PsiDirectoryNode" />
+              <item name="ItemOperations" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TryManualSwagger" type="b2602c69:ProjectViewProjectNode" />
@@ -267,12 +267,13 @@
       <workItem from="1550640900628" duration="23638000" />
       <workItem from="1550728560384" duration="9973000" />
       <workItem from="1550745027040" duration="13542000" />
-      <workItem from="1550815301368" duration="23535000" />
+      <workItem from="1550815301368" duration="23742000" />
+      <workItem from="1551073832778" duration="1736000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="186152000" />
+    <option name="totallyTimeSpent" value="188095000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -374,20 +375,11 @@
     <entry file="file://$PROJECT_DIR$/services/TestService/ITestService.ts" />
     <entry file="file://$PROJECT_DIR$/services/UsersService/IUsersService.ts" />
     <entry file="file://$PROJECT_DIR$/services/PlaylistfolderService/IPlaylistfolderService.ts" />
-    <entry file="file://$PROJECT_DIR$/src/methods/itemExistControl.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/methods/itemExistControl.js" />
     <entry file="file://$PROJECT_DIR$/src/methods/ItemOperations/itemExistControl.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="8" column="57" selection-start-line="8" selection-start-column="57" selection-end-line="8" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/RequestParameters/createQueryStringObject.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="44" selection-start-line="14" selection-start-column="44" selection-end-line="14" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -405,16 +397,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/services/ChannelcalendarService/IChannelcalendarService.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services/ChannelcalendarService/ChannelcalendarService.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-233">
-          <caret line="25" column="46" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/services/ChannelcalendarService/IChannelcalendarService.ts" />
+    <entry file="file://$PROJECT_DIR$/services/ChannelcalendarService/ChannelcalendarService.ts" />
     <entry file="file://$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/createInterfaceParameters.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -426,13 +410,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/createOptionalParametersObject.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="45" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
         </state>
       </provider>
     </entry>
@@ -450,93 +427,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/services/ContentfolderService/IContentfolderService.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services/ContentService/IContentService.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services/PlaylistService/IPlaylistService.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services/ContentfolderService/ContentfolderService.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services/MenuService/MenuService.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="47" lean-forward="true" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services/ContentService/ContentService.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services/PlaylistService/PlaylistService.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2862">
-          <caret line="160" column="4" lean-forward="true" selection-start-line="160" selection-start-column="4" selection-end-line="160" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services/TestService/TestService.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="47" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services/PlaylistfolderService/PlaylistfolderService.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services/UsersService/UsersService.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="12" column="25" lean-forward="true" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services/CompanyService/ICompanyService.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services/CompanyService/CompanyService.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="7" column="94" selection-start-line="7" selection-start-column="94" selection-end-line="7" selection-end-column="94" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services/ChannelService/ChannelService.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="74" column="30" selection-start-line="74" selection-start-column="30" selection-end-line="74" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/methods/ItemOperations/createItem.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services/PlayerService/IPlayerService.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services/PlayerService/PlayerService.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/services/ContentService/IContentService.ts" />
+    <entry file="file://$PROJECT_DIR$/services/PlaylistService/IPlaylistService.ts" />
     <entry file="file://$PROJECT_DIR$/src/app.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
           <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services/ChannelService/IChannelService.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
@@ -550,27 +446,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/methods/StructureOperations/createStructureContent.ts">
+    <entry file="file://$PROJECT_DIR$/src/methods/CodeOperations/addCode.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="122" column="31" selection-start-line="122" selection-start-column="20" selection-end-line="122" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#54#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="144">
+          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/ChannelService/IChannelService.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/CompanyService/ICompanyService.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/ContentfolderService/IContentfolderService.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/PlayerService/IPlayerService.ts">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/methods/CodeOperations/createImportCode.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/methods/CodeOperations/addCode.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -581,12 +479,116 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/methods/CodeOperations/createMethodCode.ts">
+    <entry file="file://$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/createOptionalParametersObject.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
-          <caret line="7" column="88" selection-start-line="7" selection-start-column="88" selection-end-line="7" selection-end-column="88" />
+          <caret line="7" column="45" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/RequestParameters/createQueryStringObject.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" column="44" selection-start-line="14" selection-start-column="44" selection-end-line="14" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/methods/CodeOperations/createMethodCode.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/methods/ItemOperations/createItem.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/UsersService/UsersService.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="21" column="30" lean-forward="true" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/TestService/TestService.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/PlaylistService/PlaylistService.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="188" column="14" lean-forward="true" selection-start-line="188" selection-start-column="14" selection-end-line="188" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/PlaylistfolderService/PlaylistfolderService.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="165" column="30" lean-forward="true" selection-start-line="165" selection-start-column="30" selection-end-line="165" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/PlayerService/PlayerService.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="188" column="22" lean-forward="true" selection-start-line="188" selection-start-column="22" selection-end-line="188" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/MenuService/MenuService.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="85" lean-forward="true" selection-start-line="9" selection-start-column="85" selection-end-line="9" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/ContentService/ContentService.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="16" column="99" lean-forward="true" selection-start-line="16" selection-start-column="99" selection-end-line="16" selection-end-column="99" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/ContentfolderService/ContentfolderService.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="9" column="34" lean-forward="true" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/CompanyService/CompanyService.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="12" column="40" lean-forward="true" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/ChannelService/ChannelService.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="30" lean-forward="true" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#53#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/methods/StructureOperations/createStructureContent.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="97" column="73" lean-forward="true" selection-start-line="97" selection-start-column="73" selection-end-line="97" selection-end-column="73" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
           </folding>
         </state>
       </provider>

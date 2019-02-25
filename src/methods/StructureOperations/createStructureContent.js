@@ -71,9 +71,9 @@ exports.default = (function (paths, servicesDirPath) {
         // importInterface(servicePath, importInterfaceCode);
         //
         // //CASE 2---SERVICE
-        //todo: BURDAYIMMM ... OKUMA
+        // Add IMPORT CODES to file
         createItem_1.default(servicePath, importCode); //for follow to json changes
-        var fileContent = readServiceFile(servicePath);
+        // let fileContent: any = readServiceFile(servicePath);//needn't.
         //
         // console.log("State : ", fileContent);
         //
@@ -93,9 +93,10 @@ exports.default = (function (paths, servicesDirPath) {
             methodsCodes = methodsCodes + methodCode;
             // break;
         }
-        if (!fileContent.includes(importCode)) {
-            addCode_1.default(servicePath, importCode);
-        }
+        // // this code block needn't.
+        // if (!fileContent.includes(importCode)) {
+        //     addCode(servicePath, importCode);
+        // }
         addCode_1.default(servicePath, methodsCodes);
         // break;
     }
