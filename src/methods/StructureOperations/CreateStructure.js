@@ -4,13 +4,13 @@ var express = require("express");
 var https = require("https");
 var createStructureContent_1 = require("./createStructureContent");
 var itemExistControl_1 = require("../ItemOperations/itemExistControl");
-var app = require("../../app");
+require('dotenv').config();
 var router = express.Router();
 var parsedData = '';
 var servicesDirPath = '';
-//----> router.get->path : '/' = http://localhost:8002/`${app.path}`
+//----> router.get->path : '/' = http://localhost:8002/`${examplePath}`
 router.get('/', function (req, resp) {
-    var serviceAddress = app.config.serviceUrl + app.config.servicePath;
+    var serviceAddress = process.env.SERVICE_URL + process.env.SERVICE_PATH;
     // for certificate error
     var options = {
         rejectUnauthorized: false
@@ -33,7 +33,7 @@ router.get('/', function (req, resp) {
                     itemExistControl_1.default(servicesDirPath, type); //serverDirPath path is ready
                     //For Create Service Methods
                     createStructureContent_1.default(paths, servicesDirPath);
-                    //Output
+                    //Output--SHOW
                     resp.end(JSON.stringify(parsedData));
                 }
             }
@@ -52,4 +52,3 @@ router.get('/', function (req, resp) {
 //     console.log("BURAYA GELDİ");
 // });
 module.exports = router;
-module.exports.parsedData = parsedData;

@@ -3,16 +3,17 @@ import https = require('https');
 import createStructureContent from "./createStructureContent";
 import itemExistControl from "../ItemOperations/itemExistControl";
 
-const app: any = require("../../app");
+require('dotenv').config();
+
 const router: express.Router = express.Router();
 
 let parsedData: any = '';
 let servicesDirPath: string = '';
 
-//----> router.get->path : '/' = http://localhost:8002/`${app.path}`
+//----> router.get->path : '/' = http://localhost:8002/`${examplePath}`
 router.get('/', (req: any, resp: any) => {
 
-    let serviceAddress: string = app.config.serviceUrl + app.config.servicePath;
+    let serviceAddress: string = process.env.SERVICE_URL + process.env.SERVICE_PATH;
 
     // for certificate error
     let options: any = {
@@ -41,7 +42,7 @@ router.get('/', (req: any, resp: any) => {
 
                     //For Create Service Methods
                     createStructureContent(paths, servicesDirPath);
-                    //Output
+                    //Output--SHOW
                     resp.end(JSON.stringify(parsedData));
                 }
             } catch (e) {
@@ -61,4 +62,3 @@ router.get('/', (req: any, resp: any) => {
 // });
 
 module.exports = router;
-module.exports.parsedData = parsedData;
