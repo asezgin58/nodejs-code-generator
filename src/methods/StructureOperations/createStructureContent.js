@@ -8,14 +8,14 @@ var itemExistControl_1 = require("../ItemOperations/itemExistControl");
 var serviceParameterExistControl_1 = require("../CodeOperations/ParameterOperations/serviceParameterExistControl");
 // import {string} from "prop-types";
 var str = require('../StringOperations/strMethods');
-var fs = require("fs");
-//Create Item
-var readServiceFile = function (path) {
-    return fs.readFileSync("" + path, 'utf8');
-};
+// import fs = require('fs')
+// // Create Item
+// let readServiceFile: Function = (path: string): any => {
+//     return fs.readFileSync(`${path}`, 'utf8');
+// };
 exports.default = (function (paths, servicesDirPath) {
     var pathsKeys = Object.keys(paths);
-    var prevServiceName = '';
+    // let prevServiceName: string = '';
     // let counter: number = 0;
     for (var _i = 0, pathsKeys_1 = pathsKeys; _i < pathsKeys_1.length; _i++) {
         var urlPath = pathsKeys_1[_i];

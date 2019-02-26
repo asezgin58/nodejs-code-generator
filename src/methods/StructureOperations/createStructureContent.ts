@@ -8,16 +8,16 @@ import serviceParameterExistControl from "../CodeOperations/ParameterOperations/
 
 const str: any = require('../StringOperations/strMethods');
 
-import fs = require('fs')
-//Create Item
-let readServiceFile: Function = (path: string): any => {
-    return fs.readFileSync(`${path}`, 'utf8');
-};
+// import fs = require('fs')
+// // Create Item
+// let readServiceFile: Function = (path: string): any => {
+//     return fs.readFileSync(`${path}`, 'utf8');
+// };
 
 export default (paths: any, servicesDirPath: string) => {
     let pathsKeys: any[] = Object.keys(paths);
 
-    let prevServiceName: string = '';
+    // let prevServiceName: string = '';
 
     // let counter: number = 0;
 

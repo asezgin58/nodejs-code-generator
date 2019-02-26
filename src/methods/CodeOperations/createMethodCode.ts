@@ -54,7 +54,7 @@ export default (urlPath: string, methodType: string, methodValues: any, IService
         krax({
             name: '${str.capitalize(methodValues.tags[0])}',
             request: {
-                url: '${app.serviceUrl}${urlPath}'${(methodType.toLowerCase() === 'get' || methodType.toLowerCase() === 'delete') && methodParams.length > 0 ? ` + ${queryParamsVariableName}` : ''},
+                url: '${app.config.serviceUrl}${urlPath}'${(methodType.toLowerCase() === 'get' || methodType.toLowerCase() === 'delete') && methodParams.length > 0 ? ` + ${queryParamsVariableName}` : ''},
                 method: '${methodType.toUpperCase()}',
                 ${(methodType.toLowerCase() === 'post' || methodType.toLowerCase() === 'put') && methodParams.length > 0 ? createBodyObject(methodValues.parameters, paramsName, optionalParamsObjectName, hasOptional) : ''}
                 headers: {}
