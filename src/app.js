@@ -33,7 +33,7 @@ require('dotenv').config();
 var app = express();
 var port = process.env.PORT || 8002;
 var host = process.env.HOST || 'http://localhost:'; //Example : 127.0.0.1:8080 or http://localhost:8080
-app.use("/", require('./methods/StructureOperations/CreateStructure'));
+app.use("/", require('./methods/StructureOperations/createStructure'));
 app.listen(port, function () {
     console.log("Server is running at " + host + port);
 });
