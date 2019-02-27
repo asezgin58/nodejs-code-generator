@@ -4,10 +4,13 @@ export default (methodParameters: any, paramsName: string, optionalParamsObjectN
 
     let params: string = '';
     let paramsItem: string = '';
+    let editedParamName: string = '';
 
     for (let parameter of methodParameters) {
+        editedParamName = str.editNameWithSymbol(parameter.name);
+
         if (parameter.required === true) {
-            paramsItem = str.lowerLetter(parameter.name) + `: ${paramsName}.${str.lowerLetter(parameter.name)}`;
+            paramsItem = str.lowerLetter(editedParamName) + `: ${paramsName}.${str.lowerLetter(editedParamName)}`;
             params = params + ',\n\t\t\t\t\t' + paramsItem;
         }
     }

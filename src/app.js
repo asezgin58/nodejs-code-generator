@@ -2,7 +2,25 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var express = require("express");
 require('dotenv').config();
+//****************************************************************
+// import fs = require('fs')
+// // Create Item
+// let readServiceFile: Function = (path: string): any => {
+//     return fs.readFileSync(`${path}`, 'utf8');
+// };
+//
+// let envContent: string = readServiceFile('./.env');
+// let envArray: any = envContent.split('\n');
+// let envKeyArray: any = [];
+//
+// for (let i = 0; i < envArray.length; i++) {
+//     envKeyArray[i] = (envArray[i].split('=')[0]).toLowerCase();
+// }
+//
+// console.log("-------------\n", envKeyArray);
+//****************************************************************
 // console.log("Process.Env : ", typeof process.env);//typeOf:object
+// console.log("Process.Env : ", process.env);//typeOf:object
 // let newPort: string = '8003';
 //
 // process.env.PORT = newPort;

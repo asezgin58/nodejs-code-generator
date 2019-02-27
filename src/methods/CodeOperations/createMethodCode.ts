@@ -21,6 +21,7 @@ const str: any = require('../StringOperations/strMethods');
 export default (urlPath: string, methodType: string, methodValues: any, IServicePath: any, serviceInterfaceName: string): any => {
 
     let methodName: string = str.lowerLetter(createMethodName(methodType, methodValues));
+    methodName = str.editNameWithSymbol(methodName);
     // console.log(`------------${methodName}---------\n`);
 
     let methodParams: string = methodValues.parameters.length > 0 ? createMethodParameters(methodValues.parameters) : '';
