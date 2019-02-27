@@ -21,7 +21,7 @@ exports.default = (function (paths, servicesDirPath) {
         // let urlPath: any = pathsKeys[counter];
         var serviceName = urlPath.slice(1, urlPath.length);
         var urlServiceName = serviceName.split('/')[0];
-        urlServiceName = str.editNameWithSymbol(urlServiceName);
+        urlServiceName = str.nameSymbolFilter(urlServiceName);
         serviceName = str.capitalize(urlServiceName);
         //******************PrevServiceName===ServiceName Control*******------------
         // if (counter === 0) {

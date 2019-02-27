@@ -25,7 +25,7 @@ export default (paths: any, servicesDirPath: string) => {
         let serviceName: string = urlPath.slice(1, urlPath.length);
         let urlServiceName: string = serviceName.split('/')[0];
 
-        urlServiceName = str.editNameWithSymbol(urlServiceName);
+        urlServiceName = str.nameSymbolFilter(urlServiceName);
         serviceName = str.capitalize(urlServiceName);
 
         //******************PrevServiceName===ServiceName Control*******------------
