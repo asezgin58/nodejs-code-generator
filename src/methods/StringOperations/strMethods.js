@@ -6,7 +6,7 @@ var capitalize = function (str) {
 var lowerLetter = function (str) {
     return str.charAt(0).toLowerCase() + str.slice(1);
 };
-var editNameWithSymbol = function (str) {
+var nameSymbolFilter = function (str) {
     if (str.includes('-')) {
         var strArray = str.split('-');
         str = '';
@@ -15,10 +15,10 @@ var editNameWithSymbol = function (str) {
         for (l = 1; l < strArray.length; l++) {
             str = str + capitalize(strArray[l]);
         }
-        editNameWithSymbol(str);
+        nameSymbolFilter(str);
     }
     return str;
 };
 module.exports.capitalize = capitalize;
 module.exports.lowerLetter = lowerLetter;
-module.exports.editNameWithSymbol = editNameWithSymbol;
+module.exports.nameSymbolFilter = nameSymbolFilter;

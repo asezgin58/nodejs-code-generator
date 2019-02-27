@@ -6,7 +6,7 @@ let capitalize: Function = (str: string): string => {
 let lowerLetter: Function = (str: string): string => {
     return str.charAt(0).toLowerCase() + str.slice(1);
 };
-let editNameWithSymbol: Function = (str: string): string => {
+let nameSymbolFilter: Function = (str: string): string => {
     if (str.includes('-')) {
         let strArray: any = str.split('-');
         str = '';
@@ -15,10 +15,10 @@ let editNameWithSymbol: Function = (str: string): string => {
         for (l = 1; l < strArray.length; l++) {
             str = str + capitalize(strArray[l]);
         }
-        editNameWithSymbol(str);
+        nameSymbolFilter(str);
     }
     return str;
 };
 module.exports.capitalize = capitalize;
 module.exports.lowerLetter = lowerLetter;
-module.exports.editNameWithSymbol = editNameWithSymbol;
+module.exports.nameSymbolFilter = nameSymbolFilter;

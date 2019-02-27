@@ -18,7 +18,7 @@ var str = require('../StringOperations/strMethods');
 // };
 exports.default = (function (urlPath, methodType, methodValues, IServicePath, serviceInterfaceName) {
     var methodName = str.lowerLetter(createMethodName_1.default(methodType, methodValues));
-    methodName = str.editNameWithSymbol(methodName);
+    methodName = str.nameSymbolFilter(methodName);
     // console.log(`------------${methodName}---------\n`);
     var methodParams = methodValues.parameters.length > 0 ? createMethodParameters_1.default(methodValues.parameters) : '';
     // //todo:FOR RESPONSE 2

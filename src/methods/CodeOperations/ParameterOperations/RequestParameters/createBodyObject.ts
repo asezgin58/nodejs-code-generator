@@ -7,7 +7,7 @@ export default (methodParameters: any, paramsName: string, optionalParamsObjectN
     let editedParamName: string = '';
 
     for (let parameter of methodParameters) {
-        editedParamName = str.editNameWithSymbol(parameter.name);
+        editedParamName = str.nameSymbolFilter(parameter.name);
 
         if (parameter.required === true) {
             paramsItem = str.lowerLetter(editedParamName) + `: ${paramsName}.${str.lowerLetter(editedParamName)}`;
