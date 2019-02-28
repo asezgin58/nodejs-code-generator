@@ -13,7 +13,12 @@ export default (methodType: string, methodValues: any): string => {
 
             return `${methodValues.operationId}${tag}`
 
+        } else if (methodValues.parameters.length > 1) {
+
+            return `${methodValues.operationId}${tag}ByParams`;
+
         } else {
+
             return methodValues.operationId;
         }
     }

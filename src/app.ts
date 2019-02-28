@@ -42,7 +42,7 @@ const app: express.Application = express();
 const port: any = process.env.PORT || 8002;
 const host: string = process.env.HOST || 'http://localhost:';//Example : 127.0.0.1:8080 or http://localhost:8080
 
-app.use(`/`, require('./methods/StructureOperations/createStructure'));
+app.use(process.env.RUN_PATH, require('./methods/StructureOperations/createStructure'));
 
 app.listen(port, () => {
     console.log(`Server is running at ${host}${port}`);

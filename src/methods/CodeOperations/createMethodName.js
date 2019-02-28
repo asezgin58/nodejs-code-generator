@@ -10,6 +10,9 @@ exports.default = (function (methodType, methodValues) {
         else if (methodValues.operationId.toLowerCase() === 'get') {
             return "" + methodValues.operationId + tag;
         }
+        else if (methodValues.parameters.length > 1) {
+            return "" + methodValues.operationId + tag + "ByParams";
+        }
         else {
             return methodValues.operationId;
         }

@@ -33,7 +33,7 @@ export default (urlPath: string, methodType: string, methodValues: any, IService
     let methodInterfaceName: string = '';
     let responseInterfaceName: string = '';
     if (methodParams.length > 0) {
-        methodInterfaceName = 'I' + str.capitalize(methodName) + 'Params';
+        methodInterfaceName = 'I' + str.capitalize(methodName);
         let interfaceParamsCode: any = createInterfaceParameters(methodInterfaceName, responseInterfaceName, methodParams);
         addCode(IServicePath, interfaceParamsCode);
     }

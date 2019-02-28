@@ -27,7 +27,7 @@ exports.default = (function (urlPath, methodType, methodValues, IServicePath, se
     var methodInterfaceName = '';
     var responseInterfaceName = '';
     if (methodParams.length > 0) {
-        methodInterfaceName = 'I' + str.capitalize(methodName) + 'Params';
+        methodInterfaceName = 'I' + str.capitalize(methodName);
         var interfaceParamsCode = createInterfaceParameters_1.default(methodInterfaceName, responseInterfaceName, methodParams);
         addCode_1.default(IServicePath, interfaceParamsCode);
     }
