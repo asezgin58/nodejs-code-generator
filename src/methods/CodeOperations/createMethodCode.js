@@ -3,7 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var addCode_1 = require("./addCode");
 var createMethodName_1 = require("./createMethodName");
 var createQueryParamsVariable_1 = require("./createQueryParamsVariable");
-var optionalParameterExistControl_1 = require("./ParameterOperations/optionalParameterExistControl");
+var optionalParameterExistControl_1 = require("./ParameterOperations/ControlOperations/optionalParameterExistControl");
+var pathParameterExistControl_1 = require("./ParameterOperations/ControlOperations/pathParameterExistControl");
 var createMethodParameters_1 = require("./ParameterOperations/createMethodParameters");
 var createInterfaceParameters_1 = require("./ParameterOperations/createInterfaceParameters");
 var createOptionalParametersObject_1 = require("./ParameterOperations/createOptionalParametersObject");
@@ -37,8 +38,32 @@ exports.default = (function (urlPath, methodType, methodValues, IServicePath, se
     // addItemToService(IServicePath, interfaceResponseCode);
     //END-FOR INTERFACE**************************************************
     var paramsName = 'params';
+    var methodParamsTemplate = '';
+    if (methodParams.length > 0) {
+        methodParamsTemplate = paramsName + ": " + serviceInterfaceName + "." + methodInterfaceName;
+    }
     var optionalParamsObjectName = 'optionalParameters';
     var hasOptional = optionalParameterExistControl_1.default(methodValues.parameters);
-    var queryParamsVariableName = 'queryParams';
-    return ("export const " + methodName + " = (" + (methodParams.length > 0 ? paramsName + ": " + serviceInterfaceName + "." + methodInterfaceName : '') + ") => {        \n    " + (methodParams.length > 0 && hasOptional === true ? createOptionalParametersObject_1.default(methodValues.parameters, paramsName, optionalParamsObjectName) : '') + "\n    " + ((methodType.toLowerCase() === 'get' || methodType.toLowerCase() === 'delete') && methodParams.length > 0 ? createQueryParamsVariable_1.default(queryParamsVariableName, optionalParamsObjectName, methodValues, paramsName, hasOptional) : '') + "    \n    return (\n        krax({\n            name: '" + str.capitalize(methodValues.tags[0]) + "',\n            request: {\n                url: '" + process.env.SERVICE_URL + urlPath + "'" + ((methodType.toLowerCase() === 'get' || methodType.toLowerCase() === 'delete') && methodParams.length > 0 ? " + " + queryParamsVariableName : '') + ",\n                method: '" + methodType.toUpperCase() + "',\n                " + ((methodType.toLowerCase() === 'post' || methodType.toLowerCase() === 'put') && methodParams.length > 0 ? createBodyObject_1.default(methodValues.parameters, paramsName, optionalParamsObjectName, hasOptional) : '') + "\n                headers: {}\n            },                \n            onSuccess: (state: any) => {\n                console.log('Success...');\n                console.log('State : ', state);\n            },\n            onError: (state: any, err: any) => {\n                console.log('Error :', err);\n                console.log('State :', state);\n            },\n            onBefore: (state: any) => {\n                console.log('onBefore-State : ', state);\n            }\n        })\n\t);\n};\n\n");
+    var optionalParameterObject = '';
+    if (methodParams.length > 0 && hasOptional === true) {
+        optionalParameterObject = createOptionalParametersObject_1.default(methodValues.parameters, paramsName, optionalParamsObjectName);
+    }
+    var queryParamsVariableName = '';
+    if ((methodType.toLowerCase() === 'get' || methodType.toLowerCase() === 'delete') && methodParams.length > 0) {
+        queryParamsVariableName = 'queryParams';
+    }
+    var queryParamsDescribeCode = '';
+    if ((methodType.toLowerCase() === 'get' || methodType.toLowerCase() === 'delete') && methodParams.length > 0) {
+        queryParamsDescribeCode = createQueryParamsVariable_1.default(queryParamsVariableName, optionalParamsObjectName, methodValues, paramsName, hasOptional);
+    }
+    var bodyObject = '';
+    if ((methodType.toLowerCase() === 'post' || methodType.toLowerCase() === 'put') && methodParams.length > 0) {
+        bodyObject = createBodyObject_1.default(methodValues.parameters, paramsName, optionalParamsObjectName, hasOptional);
+    }
+    var hasPathParameter = pathParameterExistControl_1.default(methodValues.parameters);
+    var pathParameter = '';
+    // if (hasPathParameter === true) {
+    //     pathParameter = createPathParameter(methodValues.parameters);
+    // }
+    return ("export const " + methodName + " = (" + methodParamsTemplate + ") => {        \n    " + optionalParameterObject + "\n    " + queryParamsDescribeCode + "    \n    return (\n        krax({\n            name: '" + str.capitalize(methodValues.tags[0]) + "',\n            request: {\n                url: `" + process.env.SERVICE_URL + urlPath + pathParameter + "`" + (queryParamsVariableName.length > 0 ? " + " + queryParamsVariableName : queryParamsVariableName) + ",\n                method: '" + methodType.toUpperCase() + "',\n                " + bodyObject + "\n                headers: {}\n            },                \n            onSuccess: (state: any) => {\n                console.log('Success...');\n                console.log('State : ', state);\n            },\n            onError: (state: any, err: any) => {\n                console.log('Error :', err);\n                console.log('State :', state);\n            },\n            onBefore: (state: any) => {\n                console.log('onBefore-State : ', state);\n            }\n        })\n\t);\n};\n\n");
 });

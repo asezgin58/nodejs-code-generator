@@ -3,7 +3,7 @@ import createMethodCode from "../CodeOperations/createMethodCode";
 import createImportCode from "../CodeOperations/createImportCode";
 import addCode from "../CodeOperations/addCode";
 import itemExistControl from "../ItemOperations/itemExistControl";
-import serviceParameterExistControl from "../CodeOperations/ParameterOperations/serviceParameterExistControl";
+import serviceParameterExistControl from "../CodeOperations/ParameterOperations/ControlOperations/serviceParameterExistControl";
 
 const str: any = require('../StringOperations/strMethods');
 

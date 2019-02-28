@@ -1,7 +1,8 @@
 import addCode from "./addCode";
 import createMethodName from "./createMethodName";
 import createQueryParamsVariable from "./createQueryParamsVariable";
-import optionalParameterExistControl from "./ParameterOperations/optionalParameterExistControl";
+import optionalParameterExistControl from "./ParameterOperations/ControlOperations/optionalParameterExistControl";
+import pathParameterExistControl from "./ParameterOperations/ControlOperations/pathParameterExistControl";
 import createMethodParameters from "./ParameterOperations/createMethodParameters";
 import createInterfaceParameters from "./ParameterOperations/createInterfaceParameters";
 import createOptionalParametersObject from "./ParameterOperations/createOptionalParametersObject";
@@ -44,21 +45,52 @@ export default (urlPath: string, methodType: string, methodValues: any, IService
     //END-FOR INTERFACE**************************************************
 
     let paramsName: string = 'params';
+
+    let methodParamsTemplate: string = '';
+    if (methodParams.length > 0) {
+        methodParamsTemplate = `${paramsName}: ${serviceInterfaceName}.${methodInterfaceName}`;
+    }
+
     let optionalParamsObjectName: string = 'optionalParameters';
     let hasOptional: boolean = optionalParameterExistControl(methodValues.parameters);
-    let queryParamsVariableName: string = 'queryParams';
+
+    let optionalParameterObject: any = '';
+    if (methodParams.length > 0 && hasOptional === true) {
+        optionalParameterObject = createOptionalParametersObject(methodValues.parameters, paramsName, optionalParamsObjectName);
+    }
+
+    let queryParamsVariableName: string = '';
+    if ((methodType.toLowerCase() === 'get' || methodType.toLowerCase() === 'delete') && methodParams.length > 0) {
+        queryParamsVariableName = 'queryParams';
+    }
+
+    let queryParamsDescribeCode: string = '';
+    if ((methodType.toLowerCase() === 'get' || methodType.toLowerCase() === 'delete') && methodParams.length > 0) {
+        queryParamsDescribeCode = createQueryParamsVariable(queryParamsVariableName, optionalParamsObjectName, methodValues, paramsName, hasOptional);
+    }
+
+    let bodyObject: any = '';
+    if ((methodType.toLowerCase() === 'post' || methodType.toLowerCase() === 'put') && methodParams.length > 0) {
+        bodyObject = createBodyObject(methodValues.parameters, paramsName, optionalParamsObjectName, hasOptional);
+    }
+
+    let hasPathParameter: boolean = pathParameterExistControl(methodValues.parameters);
+    let pathParameter: string = '';
+    // if (hasPathParameter === true) {
+    //     pathParameter = createPathParameter(methodValues.parameters);
+    // }
 
     return (
-        `export const ${methodName} = (${methodParams.length > 0 ? `${paramsName}: ${serviceInterfaceName}.${methodInterfaceName}` : ''}) => {        
-    ${methodParams.length > 0 && hasOptional === true ? createOptionalParametersObject(methodValues.parameters, paramsName, optionalParamsObjectName) : ''}
-    ${(methodType.toLowerCase() === 'get' || methodType.toLowerCase() === 'delete') && methodParams.length > 0 ? createQueryParamsVariable(queryParamsVariableName, optionalParamsObjectName, methodValues, paramsName, hasOptional) : ''}    
+        `export const ${methodName} = (${methodParamsTemplate}) => {        
+    ${optionalParameterObject}
+    ${queryParamsDescribeCode}    
     return (
         krax({
             name: '${str.capitalize(methodValues.tags[0])}',
             request: {
-                url: '${process.env.SERVICE_URL}${urlPath}'${(methodType.toLowerCase() === 'get' || methodType.toLowerCase() === 'delete') && methodParams.length > 0 ? ` + ${queryParamsVariableName}` : ''},
+                url: \`${process.env.SERVICE_URL}${urlPath}${pathParameter}\`${queryParamsVariableName.length > 0 ? ` + ${queryParamsVariableName}` : queryParamsVariableName},
                 method: '${methodType.toUpperCase()}',
-                ${(methodType.toLowerCase() === 'post' || methodType.toLowerCase() === 'put') && methodParams.length > 0 ? createBodyObject(methodValues.parameters, paramsName, optionalParamsObjectName, hasOptional) : ''}
+                ${bodyObject}
                 headers: {}
             },                
             onSuccess: (state: any) => {

@@ -5,7 +5,7 @@ var createMethodCode_1 = require("../CodeOperations/createMethodCode");
 var createImportCode_1 = require("../CodeOperations/createImportCode");
 var addCode_1 = require("../CodeOperations/addCode");
 var itemExistControl_1 = require("../ItemOperations/itemExistControl");
-var serviceParameterExistControl_1 = require("../CodeOperations/ParameterOperations/serviceParameterExistControl");
+var serviceParameterExistControl_1 = require("../CodeOperations/ParameterOperations/ControlOperations/serviceParameterExistControl");
 var str = require('../StringOperations/strMethods');
 // import fs = require('fs')
 // // Create Item
