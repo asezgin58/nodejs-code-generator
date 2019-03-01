@@ -2,9 +2,7 @@ import addCode from "./addCode";
 import createMethodName from "./createMethodName";
 import createQueryParamsVariable from "./createQueryParamsVariable";
 import optionalParameterExistControl from "./ParameterOperations/ControlOperations/optionalParameterExistControl";
-import pathParameterExistControl from "./ParameterOperations/ControlOperations/pathParameterExistControl";
-import queryParameterExistControl from "./ParameterOperations/ControlOperations/queryParameterExistControl";
-import bodyParameterExistControl from "./ParameterOperations/ControlOperations/bodyParameterExistControl";
+import parameterExistControlWithLocation from "./ParameterOperations/ControlOperations/parameterExistControlWithLocation";
 import createMethodParameters from "./ParameterOperations/createMethodParameters";
 import createInterfaceParameters from "./ParameterOperations/createInterfaceParameters";
 import createOptionalParametersObjectForQuery from "./ParameterOperations/createOptionalParametersObjectForQuery";
@@ -58,12 +56,22 @@ export default (urlPath: string, methodType: string, methodValues: any, IService
             break;
         }
     }
+    //--> parameterExistControlWithLocation
+    parameterLocation = 'query';
+    let hasQueryParameter: boolean = parameterExistControlWithLocation(methodValues.parameters, parameterLocation);
+    parameterLocation = 'path';
+    let hasPathParameter: boolean = parameterExistControlWithLocation(methodValues.parameters, parameterLocation);
 
-    let hasQueryParameter: boolean = queryParameterExistControl(methodValues.parameters);
-    let hasBodyParameter: boolean = bodyParameterExistControl(methodValues.parameters);
-    let hasPathParameter: boolean = pathParameterExistControl(methodValues.parameters);
+    let hasBodyParameter: boolean = false;
+    for (let location of forBodyObjectArray) {
+        hasBodyParameter = parameterExistControlWithLocation(methodValues.parameters, location);
+        if (hasBodyParameter === true) {
+            break;
+        }
+    }
     //***End-Control Methods
 
+    //todo:Refactor
     //***Optional Parameters
     optionalQueryParamsObjectName = 'optionalParametersForQuery';
     let optionalParameterObjectForQuery: any = '';

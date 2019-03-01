@@ -4,9 +4,7 @@ var addCode_1 = require("./addCode");
 var createMethodName_1 = require("./createMethodName");
 var createQueryParamsVariable_1 = require("./createQueryParamsVariable");
 var optionalParameterExistControl_1 = require("./ParameterOperations/ControlOperations/optionalParameterExistControl");
-var pathParameterExistControl_1 = require("./ParameterOperations/ControlOperations/pathParameterExistControl");
-var queryParameterExistControl_1 = require("./ParameterOperations/ControlOperations/queryParameterExistControl");
-var bodyParameterExistControl_1 = require("./ParameterOperations/ControlOperations/bodyParameterExistControl");
+var parameterExistControlWithLocation_1 = require("./ParameterOperations/ControlOperations/parameterExistControlWithLocation");
 var createMethodParameters_1 = require("./ParameterOperations/createMethodParameters");
 var createInterfaceParameters_1 = require("./ParameterOperations/createInterfaceParameters");
 var createOptionalParametersObjectForQuery_1 = require("./ParameterOperations/createOptionalParametersObjectForQuery");
@@ -51,10 +49,21 @@ exports.default = (function (urlPath, methodType, methodValues, IServicePath, se
             break;
         }
     }
-    var hasQueryParameter = queryParameterExistControl_1.default(methodValues.parameters);
-    var hasBodyParameter = bodyParameterExistControl_1.default(methodValues.parameters);
-    var hasPathParameter = pathParameterExistControl_1.default(methodValues.parameters);
+    //--> parameterExistControlWithLocation
+    parameterLocation = 'query';
+    var hasQueryParameter = parameterExistControlWithLocation_1.default(methodValues.parameters, parameterLocation);
+    parameterLocation = 'path';
+    var hasPathParameter = parameterExistControlWithLocation_1.default(methodValues.parameters, parameterLocation);
+    var hasBodyParameter = false;
+    for (var _a = 0, forBodyObjectArray_2 = forBodyObjectArray; _a < forBodyObjectArray_2.length; _a++) {
+        var location_2 = forBodyObjectArray_2[_a];
+        hasBodyParameter = parameterExistControlWithLocation_1.default(methodValues.parameters, location_2);
+        if (hasBodyParameter === true) {
+            break;
+        }
+    }
     //***End-Control Methods
+    //todo:Refactor
     //***Optional Parameters
     optionalQueryParamsObjectName = 'optionalParametersForQuery';
     var optionalParameterObjectForQuery = '';
