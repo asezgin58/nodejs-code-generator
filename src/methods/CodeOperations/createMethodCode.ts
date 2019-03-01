@@ -4,8 +4,6 @@ import createQueryParamsVariable from "./createQueryParamsVariable";
 import optionalParameterExistControl from "./ParameterOperations/ControlOperations/optionalParameterExistControl";
 import pathParameterExistControl from "./ParameterOperations/ControlOperations/pathParameterExistControl";
 import queryParameterExistControl from "./ParameterOperations/ControlOperations/queryParameterExistControl";
-import optionalQueryParameterExistControl from "./ParameterOperations/ControlOperations/optionalQueryParameterExistControl";
-import optionalBodyParameterExistControl from "./ParameterOperations/ControlOperations/optionalBodyParameterExistControl";
 import bodyParameterExistControl from "./ParameterOperations/ControlOperations/bodyParameterExistControl";
 import createMethodParameters from "./ParameterOperations/createMethodParameters";
 import createInterfaceParameters from "./ParameterOperations/createInterfaceParameters";
@@ -49,8 +47,18 @@ export default (urlPath: string, methodType: string, methodValues: any, IService
 
     //***Control Methods
     let hasOptional: boolean = optionalParameterExistControl(methodValues.parameters);
-    let hasOptionalQueryParameter: boolean = optionalQueryParameterExistControl(methodValues.parameters);
-    let hasOptionalBodyParameter: boolean = optionalBodyParameterExistControl(methodValues.parameters);
+    let parameterLocation: string = 'query';
+    let hasOptionalQueryParameter: boolean = optionalParameterExistControl(methodValues.parameters, parameterLocation);
+
+    let forBodyObjectArray: any[] = ['body', 'formData'];
+    let hasOptionalBodyParameter: boolean = false;
+    for (let location of forBodyObjectArray) {
+        hasOptionalBodyParameter = optionalParameterExistControl(methodValues.parameters, location);
+        if (hasOptionalBodyParameter === true) {
+            break;
+        }
+    }
+
     let hasQueryParameter: boolean = queryParameterExistControl(methodValues.parameters);
     let hasBodyParameter: boolean = bodyParameterExistControl(methodValues.parameters);
     let hasPathParameter: boolean = pathParameterExistControl(methodValues.parameters);
@@ -118,6 +126,10 @@ export default (urlPath: string, methodType: string, methodValues: any, IService
             request: {
                 url: \`${process.env.SERVICE_URL}${urlPath}${pathParameter}\`${queryParameter},
                 method: '${methodType.toUpperCase()}',
+                mode: 'cors',
+                isJson: true,
+                isFile: true,
+                isForm: true,
                 ${bodyObject}
                 headers: {}
             },                

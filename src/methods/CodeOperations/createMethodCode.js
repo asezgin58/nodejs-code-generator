@@ -6,8 +6,6 @@ var createQueryParamsVariable_1 = require("./createQueryParamsVariable");
 var optionalParameterExistControl_1 = require("./ParameterOperations/ControlOperations/optionalParameterExistControl");
 var pathParameterExistControl_1 = require("./ParameterOperations/ControlOperations/pathParameterExistControl");
 var queryParameterExistControl_1 = require("./ParameterOperations/ControlOperations/queryParameterExistControl");
-var optionalQueryParameterExistControl_1 = require("./ParameterOperations/ControlOperations/optionalQueryParameterExistControl");
-var optionalBodyParameterExistControl_1 = require("./ParameterOperations/ControlOperations/optionalBodyParameterExistControl");
 var bodyParameterExistControl_1 = require("./ParameterOperations/ControlOperations/bodyParameterExistControl");
 var createMethodParameters_1 = require("./ParameterOperations/createMethodParameters");
 var createInterfaceParameters_1 = require("./ParameterOperations/createInterfaceParameters");
@@ -42,8 +40,17 @@ exports.default = (function (urlPath, methodType, methodValues, IServicePath, se
     //***End-Method Parameter Template
     //***Control Methods
     var hasOptional = optionalParameterExistControl_1.default(methodValues.parameters);
-    var hasOptionalQueryParameter = optionalQueryParameterExistControl_1.default(methodValues.parameters);
-    var hasOptionalBodyParameter = optionalBodyParameterExistControl_1.default(methodValues.parameters);
+    var parameterLocation = 'query';
+    var hasOptionalQueryParameter = optionalParameterExistControl_1.default(methodValues.parameters, parameterLocation);
+    var forBodyObjectArray = ['body', 'formData'];
+    var hasOptionalBodyParameter = false;
+    for (var _i = 0, forBodyObjectArray_1 = forBodyObjectArray; _i < forBodyObjectArray_1.length; _i++) {
+        var location_1 = forBodyObjectArray_1[_i];
+        hasOptionalBodyParameter = optionalParameterExistControl_1.default(methodValues.parameters, location_1);
+        if (hasOptionalBodyParameter === true) {
+            break;
+        }
+    }
     var hasQueryParameter = queryParameterExistControl_1.default(methodValues.parameters);
     var hasBodyParameter = bodyParameterExistControl_1.default(methodValues.parameters);
     var hasPathParameter = pathParameterExistControl_1.default(methodValues.parameters);
@@ -92,5 +99,5 @@ exports.default = (function (urlPath, methodType, methodValues, IServicePath, se
         pathParameter = createPathParameter_1.default(methodValues.parameters, paramsName);
     }
     //***End-With Path Parameters
-    return ("export const " + methodName + " = (" + methodParamsTemplate + ") => {        \n    " + optionalParameterObjectForQuery + "\n    " + optionalParameterObjectForBody + "\n    " + queryParamsDescribeCode + "    \n    return (\n        krax({\n            name: '" + str.capitalize(methodValues.tags[0]) + "',\n            request: {\n                url: `" + process.env.SERVICE_URL + urlPath + pathParameter + "`" + queryParameter + ",\n                method: '" + methodType.toUpperCase() + "',\n                " + bodyObject + "\n                headers: {}\n            },                \n            onSuccess: (state: any) => {\n                console.log('Success...');\n                console.log('State : ', state);\n            },\n            onError: (state: any, err: any) => {\n                console.log('Error :', err);\n                console.log('State :', state);\n            },\n            onBefore: (state: any) => {\n                console.log('onBefore-State : ', state);\n            }\n        })\n\t);\n};\n\n");
+    return ("export const " + methodName + " = (" + methodParamsTemplate + ") => {        \n    " + optionalParameterObjectForQuery + "\n    " + optionalParameterObjectForBody + "\n    " + queryParamsDescribeCode + "    \n    return (\n        krax({\n            name: '" + str.capitalize(methodValues.tags[0]) + "',\n            request: {\n                url: `" + process.env.SERVICE_URL + urlPath + pathParameter + "`" + queryParameter + ",\n                method: '" + methodType.toUpperCase() + "',\n                mode: 'cors',\n                isJson: true,\n                isFile: true,\n                isForm: true,\n                " + bodyObject + "\n                headers: {}\n            },                \n            onSuccess: (state: any) => {\n                console.log('Success...');\n                console.log('State : ', state);\n            },\n            onError: (state: any, err: any) => {\n                console.log('Error :', err);\n                console.log('State :', state);\n            },\n            onBefore: (state: any) => {\n                console.log('onBefore-State : ', state);\n            }\n        })\n\t);\n};\n\n");
 });

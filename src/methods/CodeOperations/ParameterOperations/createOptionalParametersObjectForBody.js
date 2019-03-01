@@ -7,7 +7,7 @@ exports.default = (function (methodParameters, paramsName, optionalParamsObjectN
     var editedParamName = '';
     for (var _i = 0, methodParameters_1 = methodParameters; _i < methodParameters_1.length; _i++) {
         var parameter = methodParameters_1[_i];
-        if (parameter.in.toLowerCase() === 'body') {
+        if (parameter.in.toLowerCase() === 'body' || parameter.in.toLowerCase() === 'formdata') {
             editedParamName = str.nameSymbolFilter(parameter.name);
             if (parameter.required === false) {
                 paramsItem = "...(typeof " + paramsName + "." + str.lowerLetter(editedParamName) + " !== 'undefined' ? {" + str.lowerLetter(editedParamName) + ": " + paramsName + "." + str.lowerLetter(editedParamName) + "} : {})";
@@ -16,5 +16,5 @@ exports.default = (function (methodParameters, paramsName, optionalParamsObjectN
         }
     }
     params = params.slice(3, params.length);
-    return ("\n\tlet " + optionalParamsObjectName + ": any = {\n    " + params + "                    \n    };\n");
+    return ("\n\tlet " + optionalParamsObjectName + ": any = {\n    " + params + "                    \n    };");
 });

@@ -7,7 +7,7 @@ export default (methodParameters: any, paramsName: string, optionalParamsObjectN
     let editedParamName: string = '';
 
     for (let parameter of methodParameters) {
-        if (parameter.in.toLowerCase() === 'body') {
+        if (parameter.in.toLowerCase() === 'body' || parameter.in.toLowerCase() === 'formdata') {
             editedParamName = str.nameSymbolFilter(parameter.name);
 
             if (parameter.required === false) {
@@ -22,6 +22,6 @@ export default (methodParameters: any, paramsName: string, optionalParamsObjectN
     return (
         `\n\tlet ${optionalParamsObjectName}: any = {
     ${params}                    
-    };\n`
+    };`
     );
 };

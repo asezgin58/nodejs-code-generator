@@ -22,6 +22,6 @@ export default (methodParameters: any, paramsName: string, optionalParamsObjectN
     return (
         `\n\tlet ${optionalParamsObjectName}: any = {
     ${params}                    
-    };\n`
+    };`
     );
 };

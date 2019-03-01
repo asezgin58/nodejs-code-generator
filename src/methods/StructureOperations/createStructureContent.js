@@ -72,10 +72,6 @@ exports.default = (function (paths, servicesDirPath) {
             createItem_1.default(IServicePath, ''); //for follow to json changes
             ////////////*****************************
         }
-        if (serviceName === 'ContentFolderService') {
-            console.log("ContentFolder : hasParameter : ", hasParameter);
-            console.log("ContentFolder : hasQueryParam : ", hasQueryParameter);
-        }
         var importCode = createImportCode_1.default(serviceInterfaceName, hasParameter, hasQueryParameter);
         // importInterface(servicePath, importInterfaceCode);
         //

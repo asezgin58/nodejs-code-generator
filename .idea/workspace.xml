@@ -3,15 +3,23 @@
   <component name="ChangeListManager">
     <list default="true" id="69803afe-e3c9-4294-91ff-0ab4d4f18ecb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@types/prop-types/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@types/prop-types/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@types/prop-types/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@types/prop-types/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@types/prop-types/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@types/prop-types/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-krax/lib/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-krax/lib/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-krax/lib/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-krax/lib/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/react-krax/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-krax/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/ControlOperations/serviceParameterExistControl.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/ControlOperations/serviceParameterExistControl.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/ControlOperations/serviceParameterExistControl.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/ControlOperations/serviceParameterExistControl.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/methods/CodeOperations/createImportCode.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/methods/CodeOperations/createImportCode.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/methods/CodeOperations/createImportCode.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/methods/CodeOperations/createImportCode.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/ControlOperations/optionalBodyParameterExistControl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/ControlOperations/optionalBodyParameterExistControl.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/ControlOperations/optionalParameterExistControl.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/ControlOperations/optionalParameterExistControl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/ControlOperations/optionalParameterExistControl.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/ControlOperations/optionalParameterExistControl.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/ControlOperations/optionalQueryParameterExistControl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/ControlOperations/optionalQueryParameterExistControl.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/createOptionalParametersObjectForBody.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/createOptionalParametersObjectForBody.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/createOptionalParametersObjectForBody.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/createOptionalParametersObjectForBody.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/createOptionalParametersObjectForQuery.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/createOptionalParametersObjectForQuery.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/createOptionalParametersObjectForQuery.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/createOptionalParametersObjectForQuery.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/methods/CodeOperations/createMethodCode.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/methods/CodeOperations/createMethodCode.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/methods/CodeOperations/createMethodCode.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/methods/CodeOperations/createMethodCode.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/methods/StructureOperations/createStructureContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/methods/StructureOperations/createStructureContent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/methods/StructureOperations/createStructureContent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/methods/StructureOperations/createStructureContent.ts" afterDir="false" />
     </list>
@@ -52,17 +60,17 @@
           <entry key="env" value="3" />
           <entry key="gitignore" value="3" />
           <entry key="js" value="5" />
-          <entry key="json" value="12" />
-          <entry key="ts" value="1202" />
+          <entry key="json" value="13" />
+          <entry key="ts" value="1214" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key=".env file" value="2" />
-          <entry key="JSON" value="12" />
+          <entry key="JSON" value="13" />
           <entry key="JavaScript" value="5" />
           <entry key="PLAIN_TEXT" value="4" />
-          <entry key="TypeScript" value="1202" />
+          <entry key="TypeScript" value="1214" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
@@ -75,7 +83,7 @@
           <entry key="env" value="132" />
           <entry key="gitignore" value="32" />
           <entry key="json" value="90" />
-          <entry key="ts" value="21111" />
+          <entry key="ts" value="21474" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -84,21 +92,66 @@
           <entry key="HTML" value="2" />
           <entry key="JSON" value="90" />
           <entry key="PLAIN_TEXT" value="32" />
-          <entry key="TypeScript" value="21109" />
+          <entry key="TypeScript" value="21472" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/methods/CodeOperations/createMethodCode.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1130">
-              <caret line="89" column="29" selection-start-line="89" selection-start-column="29" selection-end-line="89" selection-end-column="29" />
+            <state relative-caret-position="90">
+              <caret line="5" column="108" selection-start-line="5" selection-start-column="108" selection-end-line="5" selection-end-column="108" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/services/ContentFolderService/ContentFolderService.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="21" column="42" lean-forward="true" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
               <folding>
-                <element signature="e#0#32#0" expanded="true" />
+                <element signature="e#0#65#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/services/ChannelService/ChannelService.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-234">
+              <caret line="96" column="27" selection-start-line="96" selection-start-column="27" selection-end-line="96" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/createOptionalParametersObjectForQuery.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="468">
+              <caret line="25" column="6" lean-forward="true" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/ControlOperations/optionalParameterExistControl.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="16" column="20" lean-forward="true" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/createOptionalParametersObjectForBody.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -106,8 +159,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/methods/StructureOperations/createStructureContent.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="94" column="53" selection-start-line="94" selection-start-column="53" selection-end-line="94" selection-end-column="53" />
+            <state relative-caret-position="288">
+              <caret line="16" column="57" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="57" />
               <folding>
                 <element signature="e#0#54#0" expanded="true" />
               </folding>
@@ -118,62 +171,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/ControlOperations/serviceQueryParameterExistControl.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="29" column="9" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/services/ChannelService/ChannelService.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="87" column="14" selection-start-line="87" selection-start-column="14" selection-end-line="87" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/services/PlayerService/PlayerService.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="356" column="27" lean-forward="true" selection-start-line="356" selection-start-column="27" selection-end-line="356" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/methods/CodeOperations/createImportCode.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="14" column="54" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/ControlOperations/serviceParameterExistControl.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="18" column="40" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/RequestParameters/createBodyObject.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
+            <state relative-caret-position="144">
+              <caret line="8" column="67" selection-start-line="8" selection-start-column="67" selection-end-line="8" selection-end-column="67" />
             </state>
           </provider>
         </entry>
@@ -198,7 +197,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/services/ChannelService/IChannelService.ts" />
         <option value="$PROJECT_DIR$/services/ContentfolderService/ContentfolderService.ts" />
         <option value="$PROJECT_DIR$/services/ContentService/ContentService.ts" />
         <option value="$PROJECT_DIR$/src/methods/createElementControl.ts" />
@@ -224,7 +222,6 @@
         <option value="$PROJECT_DIR$/src/methods/StructureOperations/CreateStructure.ts" />
         <option value="$PROJECT_DIR$/services/Content-folderService/Content-folderService.ts" />
         <option value="$PROJECT_DIR$/src/methods/StringOperations/strMethods.ts" />
-        <option value="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/createOptionalParametersObject.ts" />
         <option value="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/createMethodParameters.ts" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/src/app.ts" />
@@ -235,20 +232,22 @@
         <option value="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/RequestParameters/createPathParameter.ts" />
         <option value="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/ControlOperations/queryParameterExistControl.ts" />
         <option value="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/ControlOperations/bodyParameterExistControl.ts" />
-        <option value="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/createOptionalParametersObjectForQuery.ts" />
-        <option value="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/createOptionalParametersObjectForBody.ts" />
-        <option value="$PROJECT_DIR$/src/methods/CodeOperations/createQueryParamsVariable.ts" />
         <option value="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/ControlOperations/optionalQueryParameterExistControl.ts" />
         <option value="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/ControlOperations/optionalBodyParameterExistControl.ts" />
         <option value="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/RequestParameters/createQueryStringObject.ts" />
         <option value="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/RequestParameters/createBodyObject.ts" />
-        <option value="$PROJECT_DIR$/src/methods/CodeOperations/createMethodCode.ts" />
         <option value="$PROJECT_DIR$/src/methods/CodeOperations/createImportCode.ts" />
         <option value="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/ControlOperations/serviceQueryParameterExistControl.ts" />
-        <option value="$PROJECT_DIR$/src/methods/StructureOperations/createStructureContent.ts" />
         <option value="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/ControlOperations/serviceParameterExistControl.ts" />
         <option value="$PROJECT_DIR$/services/ChannelService/ChannelService.ts" />
         <option value="$PROJECT_DIR$/services/PlayerService/PlayerService.ts" />
+        <option value="$PROJECT_DIR$/src/methods/StructureOperations/createStructureContent.ts" />
+        <option value="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/createOptionalParametersObjectForQuery.ts" />
+        <option value="$PROJECT_DIR$/src/methods/CodeOperations/createQueryParamsVariable.ts" />
+        <option value="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/createOptionalParametersObject.ts" />
+        <option value="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/createOptionalParametersObjectForBody.ts" />
+        <option value="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/ControlOperations/optionalParameterExistControl.ts" />
+        <option value="$PROJECT_DIR$/src/methods/CodeOperations/createMethodCode.ts" />
       </list>
     </option>
   </component>
@@ -301,7 +300,7 @@
               <item name="TryManualSwagger" type="b2602c69:ProjectViewProjectNode" />
               <item name="TryManualSwagger" type="462c0819:PsiDirectoryNode" />
               <item name="services" type="462c0819:PsiDirectoryNode" />
-              <item name="PlayerService" type="462c0819:PsiDirectoryNode" />
+              <item name="ContentFolderService" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TryManualSwagger" type="b2602c69:ProjectViewProjectNode" />
@@ -337,15 +336,6 @@
               <item name="CodeOperations" type="462c0819:PsiDirectoryNode" />
               <item name="ParameterOperations" type="462c0819:PsiDirectoryNode" />
               <item name="ControlOperations" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TryManualSwagger" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TryManualSwagger" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="methods" type="462c0819:PsiDirectoryNode" />
-              <item name="CodeOperations" type="462c0819:PsiDirectoryNode" />
-              <item name="ParameterOperations" type="462c0819:PsiDirectoryNode" />
-              <item name="RequestParameters" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TryManualSwagger" type="b2602c69:ProjectViewProjectNode" />
@@ -428,12 +418,12 @@
       <workItem from="1551166831130" duration="15104000" />
       <workItem from="1551247998500" duration="17827000" />
       <workItem from="1551333654063" duration="21530000" />
-      <workItem from="1551419821155" duration="9026000" />
+      <workItem from="1551419821155" duration="14604000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="267162000" />
+    <option name="totallyTimeSpent" value="272740000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -448,7 +438,7 @@
     <frame x="1358" y="-132" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15437302" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15437302" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -461,7 +451,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="TypeScript" order="9" weight="0.13449024" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.25921908" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.25921908" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -507,13 +497,9 @@
         <option value="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/ControlOperations/queryParameterExistControl.js" />
         <option value="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/createMethodParameters.js" />
         <option value="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/ControlOperations/bodyParameterExistControl.js" />
-        <option value="$PROJECT_DIR$/services/ChannelService/IChannelService.js" />
-        <option value="$PROJECT_DIR$/services/PlayerService/IPlayerService.js" />
-        <option value="$PROJECT_DIR$/services/PlayerService/PlayerService.js" />
-        <option value="$PROJECT_DIR$/services/PublishmentService/PublishmentService.js" />
-        <option value="$PROJECT_DIR$/services/RtcService/RtcService.js" />
-        <option value="$PROJECT_DIR$/services/UserService/UserService.js" />
+        <option value="$PROJECT_DIR$/services/ContentFolderService/ContentFolderService.js" />
         <option value="$PROJECT_DIR$/services/ChannelService/ChannelService.js" />
+        <option value="$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/createOptionalParametersObject.js" />
       </list>
     </option>
   </component>
@@ -521,7 +507,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/services/TestService/TestService.ts" />
     <entry file="file://$PROJECT_DIR$/src/methods/ItemOperations/createItem.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -656,55 +641,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/createOptionalParametersObjectForQuery.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="53" selection-start-line="9" selection-start-column="53" selection-end-line="9" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/createOptionalParametersObjectForBody.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/ControlOperations/optionalBodyParameterExistControl.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="2" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/ControlOperations/optionalParameterExistControl.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="2" selection-end-line="13" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/ControlOperations/optionalQueryParameterExistControl.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="2" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/methods/CodeOperations/createQueryParamsVariable.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="70" selection-start-line="5" selection-start-column="70" selection-end-line="5" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/RequestParameters/createQueryStringObject.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/RequestParameters/createBodyObject.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -719,30 +655,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/methods/CodeOperations/createMethodCode.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1130">
-          <caret line="89" column="29" selection-start-line="89" selection-start-column="29" selection-end-line="89" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/ControlOperations/serviceParameterExistControl.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="18" column="40" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/methods/StructureOperations/createStructureContent.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="94" column="53" selection-start-line="94" selection-start-column="53" selection-end-line="94" selection-end-column="53" />
-          <folding>
-            <element signature="e#0#54#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -759,16 +675,6 @@
           <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
           <folding>
             <element signature="e#0#53#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services/ContentFolderService/ContentFolderService.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#65#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -838,31 +744,114 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/ControlOperations/serviceQueryParameterExistControl.ts">
+    <entry file="file://$PROJECT_DIR$/services/PlayerService/PlayerService.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="29" column="9" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
+        <state relative-caret-position="365">
+          <caret line="355" column="18" lean-forward="true" selection-start-line="355" selection-start-column="18" selection-end-line="355" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/services/ChannelService/ChannelService.ts">
+    <entry file="file://$PROJECT_DIR$/src/methods/CodeOperations/createQueryParamsVariable.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="87" column="14" selection-start-line="87" selection-start-column="14" selection-end-line="87" selection-end-column="14" />
+        <state relative-caret-position="144">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/createOptionalParametersObject.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/createOptionalParametersObjectForBody.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        <state relative-caret-position="270">
+          <caret line="15" column="25" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/services/PlayerService/PlayerService.ts">
+    <entry file="file://$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/ControlOperations/serviceQueryParameterExistControl.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="356" column="27" lean-forward="true" selection-start-line="356" selection-start-column="27" selection-end-line="356" selection-end-column="27" />
+        <state relative-caret-position="144">
+          <caret line="8" column="67" selection-start-line="8" selection-start-column="67" selection-end-line="8" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/RequestParameters/createQueryStringObject.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/methods/StructureOperations/createStructureContent.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="57" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="57" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/ChannelService/ChannelService.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-234">
+          <caret line="96" column="27" selection-start-line="96" selection-start-column="27" selection-end-line="96" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/ControlOperations/optionalBodyParameterExistControl.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="9" selection-start-line="5" selection-start-column="8" selection-end-line="10" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/ControlOperations/optionalQueryParameterExistControl.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="2" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/ControlOperations/optionalParameterExistControl.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="20" lean-forward="true" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/methods/CodeOperations/ParameterOperations/createOptionalParametersObjectForQuery.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="25" column="6" lean-forward="true" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/ContentFolderService/ContentFolderService.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="21" column="42" lean-forward="true" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#65#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/methods/CodeOperations/createMethodCode.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="108" selection-start-line="5" selection-start-column="108" selection-end-line="5" selection-end-column="108" />
         </state>
       </provider>
     </entry>

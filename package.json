@@ -16,7 +16,7 @@
     "express": "^4.16.4",
     "nodemon": "^1.18.10",
     "query-string": "^6.2.0",
-    "react-krax": "0.0.16",
+    "react-krax": "0.0.22",
     "typescript": "^3.3.3"
   }
 }

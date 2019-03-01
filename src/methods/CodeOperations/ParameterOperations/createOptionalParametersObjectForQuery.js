@@ -16,5 +16,5 @@ exports.default = (function (methodParameters, paramsName, optionalParamsObjectN
         }
     }
     params = params.slice(3, params.length);
-    return ("\n\tlet " + optionalParamsObjectName + ": any = {\n    " + params + "                    \n    };\n");
+    return ("\n\tlet " + optionalParamsObjectName + ": any = {\n    " + params + "                    \n    };");
 });

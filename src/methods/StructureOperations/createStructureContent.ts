@@ -92,11 +92,6 @@ export default (paths: any, servicesDirPath: string) => {
             ////////////*****************************
         }
 
-        if (serviceName === 'ContentFolderService') {
-            console.log("ContentFolder : hasParameter : ", hasParameter);
-            console.log("ContentFolder : hasQueryParam : ", hasQueryParameter);
-        }
-
         let importCode: any = createImportCode(serviceInterfaceName, hasParameter, hasQueryParameter);
         // importInterface(servicePath, importInterfaceCode);
         //
