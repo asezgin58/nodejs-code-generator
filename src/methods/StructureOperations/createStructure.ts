@@ -55,10 +55,5 @@ router.get('/', (req: any, resp: any) => {
         resp.end(`Got error: ${e.message}`);
     });
 });
-//
-// router.get('/:id', (req: any, resp: any) => {
-//
-//     console.log("BURAYA GELDİ");
-// });
 
 module.exports = router;

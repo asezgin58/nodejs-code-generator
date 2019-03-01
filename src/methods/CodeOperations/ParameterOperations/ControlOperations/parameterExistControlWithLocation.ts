@@ -1,5 +1,4 @@
 export default (methodParameters: any, location: string): boolean => {
-
     let hasParameter: boolean = false;
 
     for (let parameter of methodParameters) {

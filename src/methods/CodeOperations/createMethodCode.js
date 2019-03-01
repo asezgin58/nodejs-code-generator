@@ -63,7 +63,6 @@ exports.default = (function (urlPath, methodType, methodValues, IServicePath, se
         }
     }
     //***End-Control Methods
-    //todo:Refactor
     //***Optional Parameters
     optionalQueryParamsObjectName = 'optionalParametersForQuery';
     var optionalParameterObjectForQuery = '';
@@ -98,10 +97,6 @@ exports.default = (function (urlPath, methodType, methodValues, IServicePath, se
         }
     }
     //***End-Body Object Parameter
-    // if (methodName === 'fileUploadAsync') {
-    //     console.log("queryParam : ", hasQueryParameter);
-    //     console.log("BodyParam : ", hasBodyParameter);
-    // }
     //***With Path Parameters
     var pathParameter = '';
     if (hasPathParameter === true) {
