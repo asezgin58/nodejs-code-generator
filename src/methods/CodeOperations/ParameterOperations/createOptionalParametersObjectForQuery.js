@@ -7,10 +7,12 @@ exports.default = (function (methodParameters, paramsName, optionalParamsObjectN
     var editedParamName = '';
     for (var _i = 0, methodParameters_1 = methodParameters; _i < methodParameters_1.length; _i++) {
         var parameter = methodParameters_1[_i];
-        editedParamName = str.nameSymbolFilter(parameter.name);
-        if (parameter.required === false) {
-            paramsItem = "...(typeof " + paramsName + "." + str.lowerLetter(editedParamName) + " !== 'undefined' ? {" + str.lowerLetter(editedParamName) + ": " + paramsName + "." + str.lowerLetter(editedParamName) + "} : {})";
-            params = params + ',\n\t\t' + paramsItem;
+        if (parameter.in.toLowerCase() === 'query') {
+            editedParamName = str.nameSymbolFilter(parameter.name);
+            if (parameter.required === false) {
+                paramsItem = "...(typeof " + paramsName + "." + str.lowerLetter(editedParamName) + " !== 'undefined' ? {" + str.lowerLetter(editedParamName) + ": " + paramsName + "." + str.lowerLetter(editedParamName) + "} : {})";
+                params = params + ',\n\t\t' + paramsItem;
+            }
         }
     }
     params = params.slice(3, params.length);

@@ -1,6 +1,6 @@
 const str: any = require('../../../StringOperations/strMethods');
 
-export default (methodParameters: any, paramsName: string, optionalParamsObjectName: string, hasOptional: boolean): any => {
+export default (methodParameters: any, paramsName: string, optionalQueryParamsObjectName: string, hasQueryParameter: boolean): any => {
 
     let params: string = '';
     let paramsItem: string = '';
@@ -9,7 +9,7 @@ export default (methodParameters: any, paramsName: string, optionalParamsObjectN
     for (let parameter of methodParameters) {
         editedParamName = str.nameSymbolFilter(parameter.name);
 
-        if (parameter.required === true) {
+        if (parameter.required === true && parameter.in.toLowerCase() === 'query') {
             paramsItem = str.lowerLetter(editedParamName) + `: ${paramsName}.${str.lowerLetter(editedParamName)}`;
             params = params + ', ' + paramsItem;
         }
@@ -17,21 +17,21 @@ export default (methodParameters: any, paramsName: string, optionalParamsObjectN
 
     params = params.slice(2, params.length);
 
-    if (hasOptional === true && params.length > 0) {
+    if (hasQueryParameter === true && params.length > 0) {
         return (
-            `{${params}, ...${optionalParamsObjectName}}`
+            `{${params}, ...${optionalQueryParamsObjectName}}`
         );
     }
 
-    if (params.length > 0 && hasOptional === false) {
+    if (hasQueryParameter === false && params.length > 0) {
         return (
             `{${params}}`
         );
     }
 
-    if (hasOptional === true) {
+    if (hasQueryParameter === true) {
         return (
-            `{...${optionalParamsObjectName}}`
+            `{...${optionalQueryParamsObjectName}}`
         );
     }
 };

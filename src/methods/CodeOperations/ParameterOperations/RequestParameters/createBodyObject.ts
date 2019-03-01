@@ -1,6 +1,6 @@
 const str: any = require('../../../StringOperations/strMethods');
 
-export default (methodParameters: any, paramsName: string, optionalParamsObjectName: string, hasOptional: boolean): any => {
+export default (methodParameters: any, paramsName: string, optionalBodyParamsObjectName: string, hasOptionalBodyParameter: boolean): any => {
 
     let params: string = '';
     let paramsItem: string = '';
@@ -9,7 +9,7 @@ export default (methodParameters: any, paramsName: string, optionalParamsObjectN
     for (let parameter of methodParameters) {
         editedParamName = str.nameSymbolFilter(parameter.name);
 
-        if (parameter.required === true) {
+        if (parameter.required === true && parameter.in.toLowerCase() === 'body' || parameter.in.toLowerCase() === 'formdata') {
             paramsItem = str.lowerLetter(editedParamName) + `: ${paramsName}.${str.lowerLetter(editedParamName)}`;
             params = params + ',\n\t\t\t\t\t' + paramsItem;
         }
@@ -17,16 +17,16 @@ export default (methodParameters: any, paramsName: string, optionalParamsObjectN
 
     params = params.slice(7, params.length);
 
-    if (hasOptional === true && params.length > 0) {
+    if (hasOptionalBodyParameter === true && params.length > 0) {
         return (
             `body: {
                     ${params},
-                    ...${optionalParamsObjectName}
+                    ...${optionalBodyParamsObjectName}
                 },`
         );
     }
 
-    if (params.length > 0 && hasOptional === false) {
+    if (hasOptionalBodyParameter === false && params.length > 0) {
         return (
             `body: {                    
                     ${params}
@@ -34,10 +34,10 @@ export default (methodParameters: any, paramsName: string, optionalParamsObjectN
         );
     }
 
-    if (hasOptional === true) {
+    if (hasOptionalBodyParameter === true) {
         return (
             `body: {                    
-                    ...${optionalParamsObjectName}
+                    ...${optionalBodyParamsObjectName}
                 },`
         );
     }

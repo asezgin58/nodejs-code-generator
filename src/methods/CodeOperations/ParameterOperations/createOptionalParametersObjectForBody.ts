@@ -7,11 +7,13 @@ export default (methodParameters: any, paramsName: string, optionalParamsObjectN
     let editedParamName: string = '';
 
     for (let parameter of methodParameters) {
-        editedParamName = str.nameSymbolFilter(parameter.name);
+        if (parameter.in.toLowerCase() === 'body') {
+            editedParamName = str.nameSymbolFilter(parameter.name);
 
-        if (parameter.required === false) {
-            paramsItem = `...(typeof ${paramsName}.${str.lowerLetter(editedParamName)} !== 'undefined' ? {${str.lowerLetter(editedParamName)}: ${paramsName}.${str.lowerLetter(editedParamName)}} : {})`;
-            params = params + ',\n\t\t' + paramsItem;
+            if (parameter.required === false) {
+                paramsItem = `...(typeof ${paramsName}.${str.lowerLetter(editedParamName)} !== 'undefined' ? {${str.lowerLetter(editedParamName)}: ${paramsName}.${str.lowerLetter(editedParamName)}} : {})`;
+                params = params + ',\n\t\t' + paramsItem;
+            }
         }
     }
 
