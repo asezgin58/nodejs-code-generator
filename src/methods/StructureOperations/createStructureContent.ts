@@ -4,6 +4,7 @@ import createImportCode from "../CodeOperations/createImportCode";
 import addCode from "../CodeOperations/addCode";
 import itemExistControl from "../ItemOperations/itemExistControl";
 import serviceParameterExistControl from "../CodeOperations/ParameterOperations/ControlOperations/serviceParameterExistControl";
+import serviceQueryParameterExistControl from "../CodeOperations/ParameterOperations/ControlOperations/serviceQueryParameterExistControl";
 
 const str: any = require('../StringOperations/strMethods');
 
@@ -68,12 +69,15 @@ export default (paths: any, servicesDirPath: string) => {
         let methodTypes: any[] = Object.keys(paths[urlPath]);
 
         let hasParameter: boolean = serviceParameterExistControl(paths, urlServiceName);
-
+        let hasQueryParameter: boolean = false;
         let IServicePath: string = '';
         let serviceInterfaceName: string = '';
 
         if (hasParameter === true) {
             ////////////*****************************
+
+            //For Import Query-String
+            hasQueryParameter = serviceQueryParameterExistControl(paths, urlServiceName);
 
             // // // //IMPORT INTERFACE
             serviceInterfaceName = `I${serviceName}`;
@@ -88,7 +92,12 @@ export default (paths: any, servicesDirPath: string) => {
             ////////////*****************************
         }
 
-        let importCode: any = createImportCode(serviceInterfaceName, hasParameter);
+        if (serviceName === 'ContentFolderService') {
+            console.log("ContentFolder : hasParameter : ", hasParameter);
+            console.log("ContentFolder : hasQueryParam : ", hasQueryParameter);
+        }
+
+        let importCode: any = createImportCode(serviceInterfaceName, hasParameter, hasQueryParameter);
         // importInterface(servicePath, importInterfaceCode);
         //
         // //CASE 2---SERVICE

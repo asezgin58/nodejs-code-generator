@@ -6,6 +6,7 @@ var createImportCode_1 = require("../CodeOperations/createImportCode");
 var addCode_1 = require("../CodeOperations/addCode");
 var itemExistControl_1 = require("../ItemOperations/itemExistControl");
 var serviceParameterExistControl_1 = require("../CodeOperations/ParameterOperations/ControlOperations/serviceParameterExistControl");
+var serviceQueryParameterExistControl_1 = require("../CodeOperations/ParameterOperations/ControlOperations/serviceQueryParameterExistControl");
 var str = require('../StringOperations/strMethods');
 // import fs = require('fs')
 // // Create Item
@@ -53,10 +54,13 @@ exports.default = (function (paths, servicesDirPath) {
         var methodValues = Object.values(paths[urlPath]);
         var methodTypes = Object.keys(paths[urlPath]);
         var hasParameter = serviceParameterExistControl_1.default(paths, urlServiceName);
+        var hasQueryParameter = false;
         var IServicePath = '';
         var serviceInterfaceName = '';
         if (hasParameter === true) {
             ////////////*****************************
+            //For Import Query-String
+            hasQueryParameter = serviceQueryParameterExistControl_1.default(paths, urlServiceName);
             // // // //IMPORT INTERFACE
             serviceInterfaceName = "I" + serviceName;
             //
@@ -68,7 +72,11 @@ exports.default = (function (paths, servicesDirPath) {
             createItem_1.default(IServicePath, ''); //for follow to json changes
             ////////////*****************************
         }
-        var importCode = createImportCode_1.default(serviceInterfaceName, hasParameter);
+        if (serviceName === 'ContentFolderService') {
+            console.log("ContentFolder : hasParameter : ", hasParameter);
+            console.log("ContentFolder : hasQueryParam : ", hasQueryParameter);
+        }
+        var importCode = createImportCode_1.default(serviceInterfaceName, hasParameter, hasQueryParameter);
         // importInterface(servicePath, importInterfaceCode);
         //
         // //CASE 2---SERVICE
